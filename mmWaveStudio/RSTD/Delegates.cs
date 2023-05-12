@@ -1,0 +1,58 @@
+﻿using LuaInterface;
+using System;
+using System.Drawing;
+
+namespace RSTD
+{
+	internal delegate bool del_b_v();
+	internal delegate int del_i_s(string file_name);
+	internal delegate int del_i_v();
+    internal delegate long del_l_v();
+    internal delegate string del_s_s(string str);
+    internal delegate string del_s_v();
+    internal delegate void del_v_b(bool p1);
+    internal delegate void del_v_color(Color col);
+    internal delegate void del_v_i(int handle);
+    internal delegate void del_v_i_b(int handle, bool b_save);
+    internal delegate void del_v_i_s(int handle, string file_name);
+    internal delegate void del_v_s(string str);
+    internal delegate void del_v_s_b(string p1, bool p2);
+    internal delegate void del_v_u_s_i(uint time_out, string file_name, int level);
+    internal delegate void del_v_u_s_s(uint time_out, string cmd_data, string filename);
+    internal delegate void del_v_v();
+    internal delegate void dExportToCsv(string node_path, string file_path, string display_type);
+    internal delegate string dGetAttributeDel(string varFullPath, string field);
+    internal delegate LuaTable dGetFolderDel(string folder_path);
+    internal delegate string dGetVarDel(string varFullPath);
+    internal delegate void dGuiOperDel();
+    internal delegate void dGuiOperDel_1String(string varFullPath);
+    internal delegate void dGuiOperDel_1Uint32_1String(uint var1, string var2);
+    internal delegate void dGuiOperDel_2Int(int var1, int var2);
+    internal delegate void dGuiOperDel_2String(string var1, string var2);
+    internal delegate LuaTable dGuiOperDel_4String(string var1, string var2, string var3, string var4);
+    internal delegate void dGuiOperDel_5String(string var1, string var2, string var3, string var4, string var5);
+    internal delegate void dGuiOperDel_GuiMessage(string var1, bool var2);
+    internal delegate string dGuiOperDelRetStr();
+    internal delegate LuaTable dGuiSelectFolderDel();
+    internal delegate LuaTable dLT_i(int handle);
+    internal delegate LuaTable dLT_V();
+    internal delegate string dOpenFileDialogDel(string initial_dir, string filter, string title);
+    internal delegate string dOpenFolderDialogDel(string initial_dir, string title);
+    internal delegate LuaTable dReceiveArrayDel(string varFullPath, int Offset, int Stride, int Length);
+    internal delegate void dRemoveFromMonitor(string file_name);
+    internal delegate void dRemoveFromWorkSet(string file_name);
+    public delegate uint dRstdMessageDel(RstdConstants.MESSAGE_TYPE msg_type, string msg, string msg_stack);
+    internal delegate void dSetMessageMask(bool on_off_flag);
+    internal delegate void dSetVarDel(string varFullPath, string newValue);
+    internal delegate void dTransmitArrayDel(string varFullPath, int Offset, int Stride, int Length, LuaTable newValue);
+    internal delegate uint duGuiOperDel_1Uint32(uint frtNum);
+    internal delegate uint duGuiOperDel_2Uint32(uint frtNum, uint scndNum);
+    internal delegate void dWorkSetLoad(string file_name);
+    internal delegate void dWorkSetSave(string file_name);
+    internal delegate void dCommandEntered(object sender, CommandEnteredEventArgs e);
+    internal delegate void dClearWorkSet();
+    internal delegate void dClearMonitor();
+    internal delegate bool dbGuiOperDel_1String1bool1int(string text, bool ans, int time);
+    internal delegate bool dbGuiOperDel_1String(string varFullPath);
+    internal delegate void dAddToWorkSet(string file_name);
+}

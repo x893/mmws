@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mmWaveStudio", "mmWaveStudio\mmWaveStudio.csproj", "{6900DE9E-A802-48BE-89EB-B51D3A06F9D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AR1xController", "AR1xController\AR1xController.csproj", "{F2F1B033-CF82-484B-B2BC-B3C0BC920FC4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6900DE9E-A802-48BE-89EB-B51D3A06F9D9}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{6900DE9E-A802-48BE-89EB-B51D3A06F9D9}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{F2F1B033-CF82-484B-B2BC-B3C0BC920FC4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F2F1B033-CF82-484B-B2BC-B3C0BC920FC4}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9F55F5D0-ADCB-4BF2-9316-058233E58AA0}
+	EndGlobalSection
+EndGlobal

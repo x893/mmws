@@ -1,0 +1,4216 @@
+<?xml version="1.0"?>
+<doc>
+	<assembly>
+		<name>Radar Studio</name>
+	</assembly>
+	<members>
+		<member name="F:RSTD.SetCommentDialog.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.SetCommentDialog.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.SetCommentDialog.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="F:RSTD.MonitoredVars.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.MonitoredVars.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.MonitoredVars.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="F:RSTD.frmAbout.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmAbout.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmAbout.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="T:Rstd.Controls.ContainerListViews.Helpers">
+			<summary>
+				Contains useful methods.
+			</summary>
+		</member>
+		<member name="T:Rstd.Controls.ContainerListViews.IFilter">
+			<summary>
+				Exposes a method that can filter objects
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.IFilter.Belongs(System.Object)">
+			<summary>
+				Filters an object and returns a value indicating whether or not it should be included in the filter
+			</summary>
+			<param name="o">The object to filter.</param>
+			<returns>
+				<b>True</b> if the item belongs in the filter, <b>false</b> otherwise.
+			</returns>
+		</member>
+		<member name="T:Rstd.Controls.ContainerListViews.FilterStub">
+			<summary>
+				Represents a filter that always returns the same value
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.FilterStub.AllFilter">
+			<summary>
+				Represents an <see cref="T:Rstd.Controls.ContainerListViews.IFilter"/> that will include all items.
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.FilterStub.NoneFilter">
+			<summary>
+				Represents an <see cref="T:Rstd.Controls.ContainerListViews.IFilter"/> that will include none of the items.
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.FilterStub.#ctor(System.Boolean)">
+			<summary>
+				Creates a new FilterStub that always returns this value
+			</summary>
+			<param name="value">The value to return in the filter</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.FilterStub.Belongs(System.Object)">
+			<summary>
+				Always returns the value passed in through the constructor
+			</summary>
+			<param name="o">The object to filter, completely ignore in this filter</param>
+			<returns>The value that was passed into the constructor.</returns>
+		</member>
+		<member name="T:Rstd.Controls.ContainerListViews.ContainerListViewItemFilter">
+			<summary>
+				Represents a basic string comparison for a single <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> in a <see cref="T:Rstd.Controls.ContainerListViews.ContainerListView"/>.
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItemFilter.#ctor(System.Int32,System.String)">
+			<summary>
+				Creates a new filter with the specified text and column index
+			</summary>
+			<param name="columnIndex">The index of the column this filter should work on.</param>
+			<param name="filterText">The text to filter for, it is case insensitive.</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItemFilter.Belongs(System.Object)">
+			<summary>
+				Performs the filtering for the passed in <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/>.
+			</summary>
+			<param name="o">
+				An object that should represent a <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/>.
+			</param>
+			<returns></returns>
+		</member>
+		<member name="T:Rstd.Controls.ContainerListViews.ContainerListViewComparer">
+			<summary>
+				A fairly optimized IComparer for sorting strings based on different data types
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewComparer.#ctor(Rstd.Controls.ContainerListViews.ContainerListView)">
+			<summary>
+				Creates a new comparer for a <see cref="T:Rstd.Controls.ContainerListViews.ContainerListView"/>, will use current sort settings and
+				cache them locally.
+			</summary>
+			<param name="listView">
+				The <see cref="T:Rstd.Controls.ContainerListViews.ContainerListView"/> that this comparer is for.
+			</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewComparer.Compare(Rstd.Controls.ContainerListViews.ContainerListViewItem,Rstd.Controls.ContainerListViews.ContainerListViewItem)">
+			<summary>
+				Compares the two incoming <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> elements.
+			</summary>
+			<param name="item1">The first item to compare.</param>
+			<param name="item2">The second item to compare.</param>
+			<returns>Zero if equal, -1 if item1 &lt; item2, 1 if item1 &gt; item2</returns>
+		</member>
+		<member name="M:RSTD.frmSubSet.iDoGuiOperationByKeyShortcuts(System.Object,RSTD.RstdConstants.GUI_OPERATION)">
+			<summary>
+				Does gui operation, e.g. transmit/recieve according to key shortcut.
+			</summary>
+			<param name="sender">The control which got the key strike</param>
+			<param name="gui_operation">The operation to perform</param>
+		</member>
+		<member name="M:RSTD.frmSubSet.iSortColumns(Rstd.Controls.ContainerListViews.ContainerListView@)">
+			<summary>
+				For each column in ListView assign it's sort property
+			</summary>
+		</member>
+		<member name="M:RSTD.frmSubSet.SortListViewColumns(System.Boolean)">
+			<summary>
+				for each column in ListView assign it's sort property accordingly
+				the value in sort_state.
+			</summary>
+			<param name="sort_state">bool indicates if all columns property should be sorted ot not</param>
+		</member>
+		<member name="M:RSTD.frmSubSet.FixLoadedNodeForDisplay(System.Xml.XmlNode)">
+			<summary>
+				Update loaded node attributes for display
+			</summary>
+			<param name="loaded_node">The loaded xml node</param>
+		</member>
+		<member name="F:RSTD.frmSubSet.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmSubSet.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.frmSubSet.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="F:RSTD.frmMessage.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmMessage.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.frmMessage.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="F:RSTD.frmOutput.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmOutput.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.frmOutput.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="T:Rstd.Controls.ContainerListViews.SortDataType">
+			<summary>
+				Spefifies the data type to use for sorting the column
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.SortDataType.None">
+			<summary>
+				No sorting.
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.SortDataType.String">
+			<summary>
+				Sorts values as strings.
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.SortDataType.Integer">
+			<summary>
+				Sorts values as integers.
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.SortDataType.Double">
+			<summary>
+				Sorts values as doubles.
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.SortDataType.Date">
+			<summary>
+				Sorts values as DateTime.
+			</summary>
+			<remarks>
+				Uses DateTime.Parse to convert the text into a DateTime.  If it fails
+				it will revert back to string comparisons.  This will be very slow
+				sort due to the large number of exceptions being thrown.  If you expect
+				to have a mixture of dates and strings, write your own custom sorter.
+			</remarks>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.SortDataType.Custom">
+			<summary>
+				Indicates that the sort algorithm should use a user defined IComparer.
+				See the <b>CustomSortComparer</b> property. Handle exceptions yourself
+				as this control will not. Your IComparer will receive the two
+				<see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewSubItem"/>s that need to be compared.
+			</summary>
+			<remarks>
+				Do not worry yourself with <b>SortOrder</b>, that will be handled by
+				the control automatically.  Your job is to simply sort them in order.
+			</remarks>
+		</member>
+		<member name="T:Rstd.Controls.ContainerListViews.GridLines">
+			<summary>
+				Specifies the grid line styles for controls displaying items in a table structure
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.GridLines.None">
+			<summary>
+				No grid lines
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.GridLines.Horizontal">
+			<summary>
+				Horizontal grid lines
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.GridLines.Vertical">
+			<summary>
+				Vertical grid lines
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.GridLines.Both">
+			<summary>
+				Both horizontal and vertical grid lines rendered.
+			</summary>
+		</member>
+		<member name="T:Rstd.Controls.ContainerListViews.NullableBoolean">
+			<summary>
+				A boolean value that can also be defined as "not-set"
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.NullableBoolean.NotSet">
+			<summary>
+				This value hasn't been set, and is neither true nor false
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.NullableBoolean.True">
+			<summary>
+				True value
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.NullableBoolean.False">
+			<summary>
+				False value
+			</summary>
+		</member>
+		<member name="T:Rstd.Controls.ContainerListViews.ColumnWidthBehavior">
+			<summary>
+				Specifies how the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> width should behave when other columns or the list changes size.
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.ColumnWidthBehavior.Normal">
+			<summary>
+				Will not respond to other columns being resized.
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.ColumnWidthBehavior.MaintainPercent">
+			<summary>
+				A percentage will be caclulated when this or the width property is set and that percentage will be maintained.
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.ColumnWidthBehavior.Fill">
+			<summary>
+				Will grow/shrink as needed to keep the list filled (will share excess evenly with other columns that have this behavior).
+				A filled list is one that has no dead space to the right of the items and there is no horizontal scroll bar.
+			</summary>
+		</member>
+		<member name="T:Rstd.Controls.ContainerListViews.ControlResizeBehavior">
+			<summary>
+				Specifies how the control should resize as part of a <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewSubItem"/>.
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.ControlResizeBehavior.None">
+			<summary>
+				Width or height will not be altered
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.ControlResizeBehavior.HeightFit">
+			<summary>
+				Height will be set to fill sub item height; width won't be changed
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.ControlResizeBehavior.HeightFitMaintainRatio">
+			<summary>
+				Height will be set to fill sub item height; aspect ratio will be maintained
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.ControlResizeBehavior.WidthFit">
+			<summary>
+				Width will be set to fill sub item width; height won't be changed
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.ControlResizeBehavior.WidthFitMaintainRatio">
+			<summary>
+				Width will be set to fill sub item width; aspect ratio will be maintained
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.ControlResizeBehavior.BothFit">
+			<summary>
+				Both height and width will be set to fill entire sub item
+			</summary>
+		</member>
+		<member name="F:RSTD.UpdateMonitorVarsDialog.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.UpdateMonitorVarsDialog.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.UpdateMonitorVarsDialog.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="M:RSTD.LuaExportedOperations.ReceiveArrayAsStrArr(System.String,System.Int32,System.Int32,System.Int32)">
+			<summary>
+
+			</summary>
+			<param name="varFullPath"></param>
+			<param name="offset">offset in array</param>
+			<param name="stride">the stride in the array</param>
+			<param name="length">the amount of element to receive</param>
+			<returns>the array elements by the given offset, stride and length</returns>
+		</member>
+		<member name="F:RSTD.frmFilter.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmFilter.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.frmFilter.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="F:RSTD.frmYesNoTimerMsgBox.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmYesNoTimerMsgBox.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.frmYesNoTimerMsgBox.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="F:RSTD.frmLuaRegister.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmLuaRegister.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.frmLuaRegister.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="F:RSTD.frmInteractiveMsgBox.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmInteractiveMsgBox.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.frmInteractiveMsgBox.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmGuiSettings.CheckListBoxsUpdate(WeifenLuo.WinFormsUI.Docking.IDockContent)">
+			<summary>
+				this function is been activated each time
+				the user choose tools->settings.
+				It checks each check box according to
+				is visibility.
+			</summary>
+			<param name="idc">the dock content which was in focus before Setting was pressed /// </param>
+		</member>
+		<member name="F:RSTD.frmGuiSettings.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmGuiSettings.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.frmGuiSettings.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="F:RSTD.frmToolBarInfo.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmToolBarInfo.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.frmToolBarInfo.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="F:RSTD.BrowseTree.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.BrowseTree.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.BrowseTree.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="M:RSTD.BrowseTree.UpdateWorkSetColumnsState">
+			<summary>
+				Update list_view columns visibility and sort property
+			</summary>
+		</member>
+		<member name="M:RSTD.Program.Main(System.String[])">
+			<summary>
+				The main entry point for the application.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmMain.iLoadGuiDll">
+			<summary>
+				Loads the Client's GUI Forms from the GUI dll in the settings tab
+			</summary>
+		</member>
+		<member name="M:RSTD.frmMain.iUnLoadGuiDll">
+			<summary>
+				Unloads the Clients GUI forms.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmMain.WndProc(System.Windows.Forms.Message@)">
+			<summary>
+				Catches a window message from RunRstdScript.exe which contains the script
+				path to run (for running scripts from Notepad++)
+			</summary>
+			<param name="m"></param>
+		</member>
+		<member name="F:RSTD.frmMain.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmMain.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.frmMain.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="F:RSTD.FolderBrowseDialog.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.FolderBrowseDialog.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.FolderBrowseDialog.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="T:RSTD.FileType">
+			<summary>
+				For use by FileDialogs (Open and Save)
+			</summary>
+		</member>
+		<member name="F:RSTD.GuiCore.AutoSizeColumns">
+			<summary>
+				Used for autosizing columns automatically. disabled, since it
+				reduces performance. User can autoresize manuallly using Alt+
+			</summary>
+		</member>
+		<member name="M:RSTD.GuiCore.OpenFindForm(System.String)">
+			<summary>
+
+			</summary>
+			<param name="base_path"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.Build">
+			<summary>
+				Builds the AL and Client
+			</summary>
+		</member>
+		<member name="M:RSTD.GuiCore.UnBuild">
+			<summary>
+				UnBuilds the AL and Client
+			</summary>
+		</member>
+		<member name="M:RSTD.GuiCore.Go">
+			<summary>
+
+			</summary>
+		</member>
+		<member name="M:RSTD.GuiCore.Stop">
+			<summary>
+
+			</summary>
+		</member>
+		<member name="M:RSTD.GuiCore.Abort">
+			<summary>
+
+			</summary>
+		</member>
+		<member name="M:RSTD.GuiCore.Transmit(System.String[],RSTD.ReceiveTransmit_T,System.Boolean)">
+			<summary>
+				Transmit values for variables using their tree paths
+			</summary>
+			<param name="fullPaths">The tree paths of corresponding to the varialbes</param>
+			<param name="transmit_type">type of transmit, for print usage</param>
+			<param name="is_script_operation">true if function originates from a script, else false</param>
+		</member>
+		<member name="M:RSTD.GuiCore.Transmit(System.Xml.XmlNode,RSTD.ReceiveTransmit_T,System.Boolean)">
+			<summary>
+				Transmit a variable's value
+			</summary>
+			<param name="node">node corresponding to the variable</param>
+			<param name="transmit_type">type of transmit, for print usage</param>
+			<param name="is_script_operation">true if function originates from a script, else false</param>
+		</member>
+		<member name="M:RSTD.GuiCore.Transmit(System.Collections.Generic.List{System.Xml.XmlNode},RSTD.ReceiveTransmit_T,System.Boolean,RSTD.frmSubSet)">
+			<summary>
+				Transmit values for variables from given nodes
+			</summary>
+			<param name="nodes">the nodes corresponding to the varialbles</param>
+			<param name="transmit_type">type of transmit, for print usage</param>
+			<param name="is_script_operation">true if function originates from a script, else false</param>
+			<param name="sub_set">subset</param>
+		</member>
+		<member name="M:RSTD.GuiCore.Transmit(System.String,RSTD.ReceiveTransmit_T,System.Boolean)">
+			<summary>
+				Transmit value for a variable in given path
+			</summary>
+			<param name="path">the tree path corresponding to the variable</param>
+			<param name="transmit_type">type of receive, for print usage</param>
+			<param name="is_script_operation">true if function originates from a script, else false</param>
+		</member>
+		<member name="M:RSTD.GuiCore.Receive(System.String[],RSTD.ReceiveTransmit_T,System.Boolean)">
+			<summary>
+				Receive values for variables corresponding to given paths
+			</summary>
+			<param name="fullPaths">tree paths corresponding to the variables</param>
+			<param name="receive_type">type of receive, for print usage</param>
+			<param name="is_script_operation">true if function originates from a script, else false</param>
+		</member>
+		<member name="M:RSTD.GuiCore.Receive(System.Xml.XmlNode,RSTD.ReceiveTransmit_T,System.Boolean)">
+			<summary>
+				Receive value for variable corresponding to the given node
+			</summary>
+			<param name="node">node corresponding to variable</param>
+			<param name="receive_type">type of receive, for print usage</param>
+			<param name="is_script_operation">true if function originates from a script, else false</param>
+		</member>
+		<member name="M:RSTD.GuiCore.Receive(System.Collections.Generic.List{System.Xml.XmlNode},RSTD.ReceiveTransmit_T,System.Boolean,RSTD.frmSubSet)">
+			<summary>
+				Receive variables values from rttt_core
+			</summary>
+			<param name="nodes">nodes corresponding to the variables</param>
+			<param name="receive_type">type of receive, for print usage</param>
+			<param name="is_script_operation">true if function originates from a script, else false</param>
+			<param name="sub_set">subset</param>
+		</member>
+		<member name="M:RSTD.GuiCore.Receive(System.String,RSTD.ReceiveTransmit_T,System.Boolean)">
+			<summary>
+				Receive value of the variable using the given path
+			</summary>
+			<param name="path">The tree path corresponding to the variable</param>
+			<param name="receive_type">type of receive, for print usage</param>
+			<param name="is_script_operation">true if function originates from a script, else false</param>
+		</member>
+		<member name="M:RSTD.GuiCore.LoadExpose(System.String)">
+			<summary>
+				Expose
+			</summary>
+			<param name="fileName"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.Load(System.String)">
+			<summary>
+				Load Xml
+			</summary>
+			<param name="fileName"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.Save(System.String,System.String)">
+			<summary>
+				Save Xml
+			</summary>
+			<param name="xml_path"></param>
+			<param name="fileName"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.Save(System.Collections.Generic.List{System.Xml.XmlNode},System.String)">
+			<summary>
+				Save Xml
+			</summary>
+			<param name="nodes"></param>
+			<param name="fileName"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.SaveDialogTxtOrXml(System.Collections.Generic.List{System.Xml.XmlNode},System.String@,System.Boolean,System.String,System.String)">
+			<summary>
+				Open save file dialog for txt or xml file
+			</summary>
+			<param name="XmlNodes"></param>
+			<param name="file_name"></param>
+			<param name="bIsSubSet"></param>
+			<param name="version"></param>
+			<param name="src_version"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.Save(System.Xml.XmlNode,System.String)">
+			<summary>
+
+			</summary>
+			<param name="node"></param>
+			<param name="fileName"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.SaveDialogTxtOrXml(System.String,System.Byte)">
+			<summary>
+				Open save file dialog for txt or xml file
+			</summary>
+			<param name="initial_dir"></param>
+			<param name="filetypes">
+				true signs to add .txt file extension
+				should be added to save file filter
+			</param>
+			<returns>file name</returns>
+		</member>
+		<member name="M:RSTD.GuiCore.OpenFileDialog(System.String,RSTD.FileType)">
+			<summary>
+				Opens a file dialog for loading a file.
+			</summary>
+			<param name="initial_dir">Initial dir to open</param>
+			<param name="file_type">Type of file to filter</param>
+			<returns>the chosen file path</returns>
+		</member>
+		<member name="M:RSTD.GuiCore.SaveFileDialog(System.String,RSTD.FileType)">
+			<summary>
+				Open a file dialog for saving a file.
+			</summary>
+			<param name="initial_dir">Initial dir to open</param>
+			<param name="file_type">Type of file to filter</param>
+			<returns>the chosen file path</returns>
+		</member>
+		<member name="M:RSTD.GuiCore.LoadVarFromFile(System.String,System.String)">
+			<summary>
+
+			</summary>
+			<param name="varFullPath"></param>
+			<param name="fileName"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.SaveSearch(System.String,System.String,System.String,System.String,System.String)">
+			<summary>
+
+			</summary>
+			<param name="base_path"></param>
+			<param name="search_string"></param>
+			<param name="search_context"></param>
+			<param name="search_options"></param>
+			<param name="fileName"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.GetVarValue(System.String,System.String)">
+			<summary>
+
+			</summary>
+			<param name="varFullPath"></param>
+			<param name="varName"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.ChangeVarsValueBeforeTransmit(System.String,System.String,System.String)">
+			<summary>
+				Set new value to var before transmit (first step in SetAndTransmit LUA function)
+			</summary>
+			<param name="varFullPath"></param>
+			<param name="varName"></param>
+			<param name="value"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.ChangeVarsValueBeforeTransmit(System.Collections.Generic.List{System.Xml.XmlNode},System.String,RSTD.frmSubSet)">
+			<summary>
+				Set new value to var before transmit (first step in SetAndTransmit LUA function)
+			</summary>
+			<param name="xml_nodes"></param>
+			<param name="value"></param>
+			<param name="sub_set"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.ChangeVarsValue(System.String,System.String)">
+			<summary>
+				Change var value (SetVar)
+			</summary>
+			<param name="varFullPath"></param>
+			<param name="value"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.ChangeVarsValue(System.Xml.XmlNode,System.String)">
+			<summary>
+				Change var value (SetVar)
+			</summary>
+			<param name="xml_node"></param>
+			<param name="value"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.ChangeVarsValue(System.Collections.Generic.List{System.Xml.XmlNode},System.String,RSTD.frmSubSet)">
+			<summary>
+				Change var value (SetVar)
+			</summary>
+			<param name="xml_nodes"></param>
+			<param name="value"></param>
+			<param name="sub_set"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.bChangeArrayBeforeTransmit(System.Xml.XmlNode,System.String)">
+			<summary>
+
+			</summary>
+			<param name="var_node"></param>
+			<param name="value"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.bChangeValue(System.Xml.XmlNode,System.String)">
+			<summary>
+				bChangeValue calls to iChangeValue with SINGLE_VAR transmit type
+				since bChangeValue called every time SetVar only (with out Transmit)
+				called from GUI, LUA and etc.
+			</summary>
+			<param name="var_node"></param>
+			<param name="value"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.bAddMonitoredVar(System.Xml.XmlNode)">
+			<summary>
+
+			</summary>
+			<param name="var_node"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.bAddMonitoredVar(System.Collections.Generic.List{System.Xml.XmlNode})">
+			<summary>
+
+			</summary>
+			<param name="var_nodes"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.RemoveMonitoredVar(System.Collections.Generic.List{System.Xml.XmlNode})">
+			<summary>
+
+			</summary>
+			<param name="var_nodes"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.RemoveAfterValidateFromMonitor(System.Collections.Generic.List{System.Xml.XmlNode})">
+			<summary>
+
+			</summary>
+			<param name="var_nodes"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.MonitorSetVars(System.String)">
+			<summary>
+
+			</summary>
+			<param name="settingsFile"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.MonitorStart(System.String)">
+			<summary>
+
+			</summary>
+			<param name="outFileName"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.MonitorStop">
+			<summary>
+
+			</summary>
+		</member>
+		<member name="M:RSTD.GuiCore.MonitorFlush">
+			<summary>
+				Flushes all new monitored data to the rtd file.
+			</summary>
+		</member>
+		<member name="M:RSTD.GuiCore.RemoveDuplicateChars(System.String@,System.Char)">
+			<summary>
+				Removes consecutive appearances of a character in a string
+			</summary>
+			<param name="str">the string</param>
+			<param name="ch">the character to check</param>
+		</member>
+		<member name="M:RSTD.GuiCore.RunFunction(System.String,System.Boolean,System.Boolean)">
+			<summary>
+				Executes the exported function specified in funcCall
+			</summary>
+			<param name="funcCall">The path to the function and it's arguments</param>
+			<param name="async">specifies if to run in a new thread or not</param>
+			<param name="is_from_gui_client">specifies if the call was made from a GUI client</param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.RunFuncByXml(System.String)">
+			<summary>
+
+			</summary>
+			<param name="funcPath"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.ErrorMessage(System.String)">
+			<summary>
+				writes the message as an ERROR.
+				If running from lua script, Throws an Exception.
+				Else, pops a message box
+			</summary>
+			<param name="msg"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.RstdException(System.String,System.String)">
+			<summary>
+				If running from lua script, Throws an Exception.
+				Else, pops a message box
+			</summary>
+			<param name="msg">The message</param>
+			<param name="msg_stack">The message stack if exists</param>
+		</member>
+		<member name="M:RSTD.GuiCore.RstdMesssage(System.String)">
+			<summary>
+				Writes the message to log.
+				If not running from lua script, pops a MessageBox.
+			</summary>
+			<param name="msg"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.RSTDMessage(RSTD.RstdConstants.MESSAGE_TYPE,System.String)">
+			<summary>
+
+			</summary>
+			<param name="msg_type"></param>
+			<param name="msg"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.RSTDMessage(RSTD.RstdConstants.MESSAGE_TYPE,System.String,System.String)">
+			<summary>
+
+			</summary>
+			<param name="msg_type"></param>
+			<param name="msg"></param>
+			<param name="msg_stack"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.ValidateSameShowArrayOpenOnlyOnce(System.Xml.XmlNode)">
+			<summary>
+
+			</summary>
+			<param name="xml_node"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.GetLastIndexedFileNameInPath(System.String,System.String,System.String)">
+			<summary>
+
+			</summary>
+			<param name="fileNamePrefix"></param>
+			<param name="fileNameSuffix"></param>
+			<param name="path"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.IncrementFileNameIdx(System.String,System.Int32,System.String@)">
+			<summary>
+
+			</summary>
+			<param name="fileNamePrefix"></param>
+			<param name="nominalNumberStringPaddingLen"></param>
+			<param name="prevFileName"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.IncrementSubFileNameIdx(System.String)">
+			<summary>
+
+			</summary>
+			<param name="prevFileName"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.bCalcFieldsFromRegister(System.Xml.XmlNode)">
+			<summary>
+
+			</summary>
+			<param name="reg_node"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.bNodeContainsRegisters(System.Xml.XmlNode)">
+			<summary>
+
+			</summary>
+			<param name="node"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.GetNodeType(System.Xml.XmlNode)">
+			<summary>
+
+			</summary>
+			<param name="node"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.GetDisplayedValue(System.Xml.XmlNode)">
+			<summary>
+
+			</summary>
+			<param name="node"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.GetDisplayedValue(System.Xml.XmlNode,RSTD.DisplayType,System.String)">
+			<summary>
+				Get value to be displayed for a given node
+			</summary>
+			<param name="node">The node</param>
+			<param name="display_type">The type in which to display</param>
+			/// <param name="value">the value</param>
+			<returns>The displayed value as string</returns>
+		</member>
+		<member name="M:RSTD.GuiCore.GetDisplayedValue(System.Xml.XmlNode,RSTD.DisplayType)">
+			<summary>
+				Get value to be displayed for a given node
+			</summary>
+			<param name="node">The node</param>
+			<param name="display_type">The type in which to display</param>
+			<returns>The displayed value as string</returns>
+		</member>
+		<member name="M:RSTD.GuiCore.GetDisplayedType(System.Xml.XmlNode)">
+			<summary>
+
+			</summary>
+			<param name="node"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.GetDisplayedFixMode(System.Xml.XmlNode)">
+			<summary>
+
+			</summary>
+			<param name="node"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.bIsDisplayTypeValidForType(RSTD.DisplayType,System.String)">
+			<summary>
+
+			</summary>
+			<param name="display_type"></param>
+			<param name="var_type"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.GetVarIcon(System.Xml.XmlNode)">
+			<summary>
+
+			</summary>
+			<param name="xmlNode"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.bGetVarOptions(System.Xml.XmlNode,System.String[]@)">
+			<summary>
+
+			</summary>
+			<param name="node"></param>
+			<param name="options_arr"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.bGetOptionFromValue(System.Xml.XmlNode,System.String@)">
+			<summary>
+
+			</summary>
+			<param name="var_node"></param>
+			<param name="value"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.bGetValueFromOptions(System.Xml.XmlNode,System.String@)">
+			<summary>
+
+			</summary>
+			<param name="var_node"></param>
+			<param name="value"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.ListView_MouseDoubleClick(System.Object,System.Windows.Forms.MouseEventArgs)">
+			<summary>
+
+			</summary>
+			<param name="sender"></param>
+			<param name="e"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.UpdateFolderList(Rstd.Controls.ContainerListViews.ContainerListView)">
+			<summary>
+
+			</summary>
+			<param name="list_view"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.bHasBuildStatus(RSTD.EBuildStatus)">
+			<summary>
+
+			</summary>
+			<param name="status"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.AdjustToolTipSize(System.Object,System.Windows.Forms.PopupEventArgs)">
+			<summary>
+
+			</summary>
+			<param name="sender"></param>
+			<param name="e"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.DisplayToolTip(Rstd.Controls.ContainerListViews.ContainerListView,System.Windows.Forms.MouseEventArgs,System.Windows.Forms.ToolTip)">
+			<summary>
+
+			</summary>
+			<param name="list_view"></param>
+			<param name="e"></param>
+			<param name="tooltip"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.bAreAllFunctionArgs(System.Collections.Generic.List{System.Xml.XmlNode})">
+			<summary>
+
+			</summary>
+			<param name="xml_nodes"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.GetImageFromFile(System.String)">
+			<summary>
+				Creates an Image from a file, without retaining the file handle. (unlike Image.FromFile())
+				So that the file can be write accessed (overwritten).
+			</summary>
+			<param name="file_name">The image file to load from</param>
+			<returns>The Image object</returns>
+		</member>
+		<member name="M:RSTD.GuiCore.RestoreWindow(System.Windows.Forms.Form)">
+			<summary>
+				Resotres a minimized window to its previous state
+			</summary>
+			<param name="frm">the minimized window</param>
+		</member>
+		<member name="M:RSTD.GuiCore.RecursiveFind(System.Xml.XmlNode,System.Boolean,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Collections.Generic.List{System.Xml.XmlNode})">
+			<summary>
+
+			</summary>
+			<param name="basePathNode"></param>
+			<param name="recursiveFolder"></param>
+			<param name="searchStr"></param>
+			<param name="bCheckName"></param>
+			<param name="bCheckValue"></param>
+			<param name="bCheckComment"></param>
+			<param name="bCheckType"></param>
+			<param name="bCheckAddress"></param>
+			<param name="bCheckDescription"></param>
+			<param name="bMatchCase"></param>
+			<param name="bWholeWordOnly"></param>
+			<param name="bRegularExpression"></param>
+			<param name="nodesFound"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.bGetFolder(System.String,System.Xml.XmlNode@)">
+			<summary>
+
+			</summary>
+			<param name="path"></param>
+			<param name="xmlFolder"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.GetPathFromNode(System.Xml.XmlNode)">
+			<summary>
+
+			</summary>
+			<param name="xml_node"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.ibGetFuncParamsStr(System.String,System.String@)">
+			<summary>
+
+			</summary>
+			<param name="funcName"></param>
+			<param name="paramStr"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.GetNodeFromPath(System.String,System.Xml.XmlNode@,System.Boolean)">
+			<summary>
+
+			</summary>
+			<param name="path"></param>
+			<param name="xmlFolder"></param>
+			<param name="b_warn"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.ibGetNodeFromFunctionCall(System.String,System.Xml.XmlNode@)">
+			<summary>
+
+			</summary>
+			<param name="funcCall"></param>
+			<param name="node"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.iGetParamsFromParamsStr(System.String)">
+			<summary>
+
+			</summary>
+			<param name="params_str"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.CreateTreeListNode(System.Xml.XmlNode)">
+			<summary>
+
+			</summary>
+			<param name="xml_node"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.iFileDialog(System.String,RSTD.FileType,RSTD.DialogType)">
+			<summary>
+				Opens a file dialog for loading/saving a file.
+			</summary>
+			<param name="initial_dir">Initial dir to open</param>
+			<param name="file_type">Type of file to filter</param>
+			<param name="dialog_type">Type of dialog operation to choose</param>
+			<returns>the chosen file path</returns>
+		</member>
+		<member name="M:RSTD.GuiCore.iRunFunctionAsync(System.String,System.Boolean)">
+			<summary>
+
+			</summary>
+			<param name="funcCall"></param>
+			<param name="is_from_gui_client"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.ibRunSettingsFunction(System.String)">
+			<summary>
+
+			</summary>
+			<param name="funcCall"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.iRunFunctionAsyncThreadCompleted(System.IAsyncResult)">
+			<summary>
+
+			</summary>
+			<param name="res"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iGetSeperatorInCommand(System.String@,System.String)">
+			<summary>
+
+			</summary>
+			<param name="SepertorInCommand"></param>
+			<param name="path"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.ibIsValueValidForRegister(System.Xml.XmlNode,System.String)">
+			<summary>
+
+			</summary>
+			<param name="reg_node"></param>
+			<param name="new_val"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.GetDefaultDispalyType(RSTD.NodeType)">
+			<summary>
+
+			</summary>
+			<param name="node_type"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.iGetIntValue(System.Xml.XmlNode,System.String)">
+			<summary>
+
+			</summary>
+			<param name="node"></param>
+			<param name="var_single_value"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.GetSingleValueDisplay(System.Xml.XmlNode,RSTD.DisplayType,System.String)">
+			<summary>
+
+			</summary>
+			<param name="node"></param>
+			<param name="display_type"></param>
+			<param name="single_original_value"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.ibGetFixedNodeBitPattern(System.Xml.XmlNode,System.Int64@)">
+			<summary>
+
+			</summary>
+			<param name="node"></param>
+			<param name="bit_pattern"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.GetBitPattern(System.Double,System.String,System.Double@,System.Int64@)">
+			<summary>
+
+			</summary>
+			<param name="value"></param>
+			<param name="q_notation"></param>
+			<param name="q_value"></param>
+			<param name="bit_pattern"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.GetValueFromOption(System.String)">
+			<summary>
+
+			</summary>
+			<param name="option_str"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.iUpdateVar(RSTD.UpdateDialog,System.String@,System.Boolean@)">
+			<summary>
+
+			</summary>
+			<param name="update_dlg"></param>
+			<param name="new_val"></param>
+			<param name="isTransmit"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iUpdateFileVar(System.String,System.String@)">
+			<summary>
+
+			</summary>
+			<param name="old_val"></param>
+			<param name="new_val"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iUpdatePathVar(System.String,System.String@)">
+			<summary>
+
+			</summary>
+			<param name="old_val"></param>
+			<param name="new_val"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iGetToolTip(Rstd.Controls.ContainerListViews.ContainerListView,Rstd.Controls.ContainerListViews.ContainerListViewItem,System.Windows.Forms.MouseEventArgs,System.Int32,System.Windows.Forms.ToolTip)">
+			<summary>
+
+			</summary>
+			<param name="list_view"></param>
+			<param name="item"></param>
+			<param name="e"></param>
+			<param name="subitem_index"></param>
+			<param name="tooltip"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.AlwaysPrint(System.String)">
+			<summary>
+
+			</summary>
+			<param name="text"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iAlwaysPrint(System.UInt32,System.String)">
+			<summary>
+
+			</summary>
+			<param name="print_level"></param>
+			<param name="text"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iDoCoreMsg(System.String)">
+			<summary>
+
+			</summary>
+			<param name="msg"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iDoMsgBox(System.UInt32,System.String)">
+			<summary>
+
+			</summary>
+			<param name="msg_type"></param>
+			<param name="msg"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.RefreshGui">
+			<summary>
+
+			</summary>
+		</member>
+		<member name="M:RSTD.GuiCore.iParseClockList(System.Text.StringBuilder)">
+			<summary>
+
+			</summary>
+			<param name="clockSb"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iCreateDirectoryIfNotExists(System.String)">
+			<summary>
+
+			</summary>
+			<param name="dirName"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iTransmitAsync(System.Xml.XmlNode)">
+			<summary>
+				Start transmit asynchrony (transmit single var)
+			</summary>
+			<param name="node"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iTransmitAsync(RSTD.ReceiveTransmit_T,System.Collections.Generic.List{System.Xml.XmlNode},RSTD.frmSubSet)">
+			<summary>
+				Transmit asynchrony
+			</summary>
+			<param name="transmitType">
+				sign for verbose print what lua operation executed
+				(Transmit, TransmitArray or SteAndTransmit)
+			</param>
+			<param name="nodes"></param>
+			<param name="sub_set"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iTransmitBegin(RSTD.ReceiveTransmit_T,System.Collections.Generic.List{System.Xml.XmlNode})">
+			<summary>
+				Step 1 of asynchrony transmit
+			</summary>
+			<param name="transmitType">sign for verbose print what lua operation executed</param>
+			<param name="nodes"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iTransmit(System.Collections.Generic.List{System.Xml.XmlNode})">
+			<summary>
+				Step 2 of asynchrony transmit
+			</summary>
+			<param name="nodes"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iContainsExternalUpdateTab(System.Xml.XmlNode)">
+			<summary>
+				Returns if the Xml contains a tab which should be transmitted/received by an external
+				function (i.e. from a loaded controller)
+			</summary>
+			<param name="root_node">the root node of the tree</param>
+			<returns>true/false</returns>
+		</member>
+		<member name="M:RSTD.GuiCore.iTransmitEnd(System.Collections.Generic.List{System.Xml.XmlNode},RSTD.frmSubSet)">
+			<summary>
+				Step 3 of asynchrony transmit
+			</summary>
+			<param name="nodes"></param>
+			<param name="sub_set"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iAsyncThreadCompleted(System.IAsyncResult)">
+			<summary>
+				Step 4 of asynchrony transmit
+			</summary>
+			<param name="res"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.AL_Build(System.Boolean)">
+			<summary>
+				Builds the Abstraction Layer (Calls the AL's Ctor and ExportToGui)
+			</summary>
+			<param name="isManual">true - if called manually by running the exported function, else false</param>
+		</member>
+		<member name="M:RSTD.GuiCore.AL_Init">
+			<summary>
+				Calls the AL's exported Init() function
+			</summary>
+		</member>
+		<member name="M:RSTD.GuiCore.AL_Reset">
+			<summary>
+				Calls the AL's exported Reset() function
+			</summary>
+		</member>
+		<member name="M:RSTD.GuiCore.AL_UnBuild(System.Boolean)">
+			<summary>
+				UnBuilds the Abstraction Layer (Calls the AL's Dtor and removes its tabs from the BrowseTree)
+			</summary>
+			<param name="isManual">true - if called manually by running the exported function, else false</param>
+		</member>
+		<member name="M:RSTD.GuiCore.Clients_Build(System.Boolean)">
+			<summary>
+				Builds the Client (calls Client's Ctor and ExportToGui)
+			</summary>
+			<param name="isManual">true - if called manually by running the exported function, else false</param>
+		</member>
+		<member name="M:RSTD.GuiCore.Clients_Init">
+			<summary>
+				Calls the Client's exported Init() function
+			</summary>
+		</member>
+		<member name="M:RSTD.GuiCore.Clients_Reset">
+			<summary>
+				Calls the Client's exported Reset() function
+			</summary>
+		</member>
+		<member name="M:RSTD.GuiCore.Clients_UnBuild(System.Boolean)">
+			<summary>
+				UnBuilds the Client (Calls the Client's dtor and removes it's tabs from BrowseTree)
+			</summary>
+			<param name="isManual">true - if called manually by running the exported function, else false</param>
+		</member>
+		<member name="M:RSTD.GuiCore.GetNodeValue(System.Xml.XmlNode)">
+			<summary>
+
+			</summary>
+			<param name="node"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.iBuild">
+			<summary>
+				Builds the AL and Client (called from a non-Gui thread)
+			</summary>
+		</member>
+		<member name="M:RSTD.GuiCore.iCalcRegisterFieldsValues(System.Xml.XmlNode)">
+			<summary>
+
+			</summary>
+			<param name="node"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iGo">
+			<summary>
+
+			</summary>
+		</member>
+		<member name="M:RSTD.GuiCore.iUnBuild">
+			<summary>
+
+			</summary>
+		</member>
+		<member name="M:RSTD.GuiCore.iBuildAsyncThreadCompleted(System.IAsyncResult)">
+			<summary>
+
+			</summary>
+			<param name="res"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iGoAsyncThreadCompleted(System.IAsyncResult)">
+			<summary>
+
+			</summary>
+			<param name="res"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iMonitorStopAsyncThreadCompleted(System.IAsyncResult)">
+			<summary>
+
+			</summary>
+			<param name="res"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iUnBuildAsyncThreadCompleted(System.IAsyncResult)">
+			<summary>
+
+			</summary>
+			<param name="res"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iHandleAsyncThreadExceptions(System.IAsyncResult)">
+			<summary>
+
+			</summary>
+			<param name="res"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iReceiveAsync(RSTD.ReceiveTransmit_T,System.Collections.Generic.List{System.Xml.XmlNode},RSTD.frmSubSet)">
+			<summary>
+				Receive asyncrony
+			</summary>
+			<param name="receiveType">sign for verbose print what lua operation executed</param>
+			<param name="nodes"></param>
+			<param name="sub_set"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iReceiveBegin(RSTD.ReceiveTransmit_T,System.Collections.Generic.List{System.Xml.XmlNode})">
+			<summary>
+
+			</summary>
+			<param name="receiveType">sign for verbose print what lua operation executed</param>
+			<param name="nodes"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iRemoveDuplicatedFields(System.Collections.Generic.List{System.Xml.XmlNode})">
+			<summary>
+				Remove fields in the list if their parents (registers) are already included.
+			</summary>
+			<param name="nodes">List of nodes to remove from</param>
+		</member>
+		<member name="M:RSTD.GuiCore.iReceive(System.Collections.Generic.List{System.Xml.XmlNode})">
+			<summary>
+
+			</summary>
+			<param name="nodes"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iReceiveEnd(System.Collections.Generic.List{System.Xml.XmlNode},RSTD.frmSubSet)">
+			<summary>
+
+			</summary>
+			<param name="nodes"></param>
+			<param name="sub_set"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.bSetVarValue(System.Xml.XmlNode,System.String)">
+			<summary>
+
+			</summary>
+			<param name="var_node"></param>
+			<param name="value"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.bGetNumericValueToSet(System.Xml.XmlNode,RSTD.DisplayType,System.String@,System.Boolean)">
+			<summary>
+
+			</summary>
+			<param name="var_node"></param>
+			<param name="display_type"></param>
+			<param name="value"></param>
+			<param name="check_bitpattern_display">Sets if to check the bit pattern display for values with no prefix</param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.ibSetVar(RSTD.ReceiveTransmit_T,System.Xml.XmlNode,System.String)">
+			<summary>
+				iChangeValue do actually the value change
+				for additional it gets transmit type for verbose print
+				transmit type can be single var - SetVar called
+				or set and transmit - SetAndTransmit called
+			</summary>
+			<param name="transmitType">sign for verbose print what lua operation executed</param>
+			<param name="var_node"></param>
+			<param name="value"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.ibGetNodeInPath(System.String,System.String,System.Xml.XmlNode@,System.Boolean,System.String)">
+			<summary>
+
+			</summary>
+			<param name="path"></param>
+			<param name="var_name"></param>
+			<param name="var_node"></param>
+			<param name="bThrowExceptions"></param>
+			<param name="luaOperation"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.iRecursiveMerge(System.Xml.XmlNode,System.Xml.XmlNode,System.Xml.XmlDocument,System.Boolean,System.Boolean@)">
+			<summary>
+
+			</summary>
+			<param name="receive_node"></param>
+			<param name="insert_node"></param>
+			<param name="receive_doc"></param>
+			<param name="allow_duplicates"></param>
+			<param name="inserted"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iSaveTxt(System.Collections.Generic.List{System.Xml.XmlNode},System.String)">
+			<summary>
+
+			</summary>
+			<param name="nodes"></param>
+			<param name="fileName"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.ibSaveXml(System.Collections.Generic.List{System.Xml.XmlNode},System.String)">
+			<summary>
+
+			</summary>
+			<param name="nodes"></param>
+			<param name="fileName"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iCreateTreeFromNodes(System.Collections.Generic.List{System.Xml.XmlNode},System.Xml.XmlDocument,System.Boolean)">
+			<summary>
+
+			</summary>
+			<param name="nodes"></param>
+			<param name="xml_doc"></param>
+			<param name="allow_duplicates"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.ibCompare(System.String,System.String,System.Boolean,System.Boolean,System.Boolean)">
+			<summary>
+
+			</summary>
+			<param name="compareStr"></param>
+			<param name="searchStr"></param>
+			<param name="bMatchCase"></param>
+			<param name="bWholeWordOnly"></param>
+			<param name="bRegularExpression"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.iCountVarsUnderNodePath(System.Xml.XmlNode)">
+			<summary>
+
+			</summary>
+			<param name="node"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.GuiCore.iRemoveRegisterFieldsFromNode_Recursive(System.Xml.XmlNode)">
+			<summary>
+
+			</summary>
+			<param name="node"></param>
+		</member>
+		<member name="M:RSTD.GuiCore.iInsertSpacesToEmptyStringVars_Recursive(System.Xml.XmlNode)">
+			<summary>
+				Adds " " recursivly to the string vars under the given node, to fix problem in the Expat parser
+				(the c++ xml parser), which calls the iCDataHandler_Transmit and iCDataHandler_Receive only for
+				nodes which have a value inside.
+			</summary>
+			<param name="node">node to check</param>
+		</member>
+		<member name="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection">
+			<summary>
+				Implements a strongly typed collection of <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> elements.
+			</summary>
+			<remarks>
+				<b>ContainerListViewColumnHeaderCollection</b> provides an <see cref="T:System.Collections.ArrayList"/>
+				that is strongly typed for <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> elements.
+			</remarks>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.Add(Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader)">
+			<summary>
+				Adds an existing <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> object to the collection.
+			</summary>
+			<param name="column">
+				The <b>ContainerListViewColumnHeader</b> object to add to the collection.
+			</param>
+			<returns>The position into which the new element was inserted.</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.Add(System.String)">
+			<summary>
+				Adds a column to the collection with the specified text.
+			</summary>
+			<param name="text">The text to display.</param>
+			<returns>
+				The <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> that was added to the collection.
+			</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.Add(System.String,System.Int32)">
+			<summary>
+				Adds a column to the collection with the specified text and width.
+			</summary>
+			<param name="text">The text to display.</param>
+			<param name="width">The starting width.</param>
+			<returns>
+				The <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> that was added to the collection.
+			</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.Add(System.String,System.Int32,Rstd.Controls.ContainerListViews.SortDataType)">
+			<summary>
+				Adds a column to the collection with the specified text and width.
+			</summary>
+			<param name="text">The text to display.</param>
+			<param name="width">The starting width.</param>
+			<param name="sortDataType">The data type to use to sort the column.</param>
+			<returns>
+				The <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> that was added to the collection.
+			</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.Add(System.String,System.Int32,System.Windows.Forms.HorizontalAlignment)">
+			<summary>
+				Adds a column to the collection with the specified properties.
+			</summary>
+			<param name="text">The text to display.</param>
+			<param name="width">The starting width.</param>
+			<param name="horizontalAlign">The horizontal alignment, will default vertical alignment to middle.</param>
+			<returns>
+				The <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> that was added to the collection.
+			</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.Add(System.String,System.Int32,System.Drawing.ContentAlignment)">
+			<summary>
+				Adds a column to the collection with the specified properties.
+			</summary>
+			<param name="text">The text to display.</param>
+			<param name="width">The starting width.</param>
+			<param name="contentAlign">The content alignment.</param>
+			<returns>
+				The <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> that was added to the collection.
+			</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.AddRange(Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader[])">
+			<summary>
+				Adds an array of <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> objects to the collection.
+			</summary>
+			<param name="columns">
+				An array of <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> objects to add to the collection.
+			</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.Insert(System.Int32,Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader)">
+			<summary>
+				Inserts an existing <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> into the collection at the specified index.
+			</summary>
+			<param name="index">The zero-based index location where the column is inserted.</param>
+			<param name="column">
+				The <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> that represents the column to insert.
+			</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.Insert(System.Int32,System.String)">
+			<summary>
+				Creates a new header and inserts it into the collection at the specified index.
+			</summary>
+			<param name="index">The zero-based index location where the column is inserted.</param>
+			<param name="text">The text to display.</param>
+			<returns>
+				The <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> that was inserted into the collection.
+			</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.Insert(System.Int32,System.String,System.Int32)">
+			<summary>
+				Creates a new header and inserts it into the collection at the specified index.
+			</summary>
+			<param name="index">The zero-based index location where the column is inserted.</param>
+			<param name="text">The text to display.</param>
+			<param name="width">The starting width.</param>
+			<returns>
+				The <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> that was inserted into the collection.
+			</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.Insert(System.Int32,System.String,System.Int32,Rstd.Controls.ContainerListViews.SortDataType)">
+			<summary>
+				Creates a new header and inserts it into the collection at the specified index.
+			</summary>
+			<param name="index">The zero-based index location where the column is inserted.</param>
+			<param name="text">The text to display.</param>
+			<param name="width">The starting width.</param>
+			<param name="sortDataType">The data type to use to sort the column.</param>
+			<returns>
+				The <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> that was inserted into the collection.
+			</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.Insert(System.Int32,System.String,System.Int32,System.Windows.Forms.HorizontalAlignment)">
+			<summary>
+				Creates a new header and inserts it into the collection at the specified index.
+			</summary>
+			<param name="index">The zero-based index location where the column is inserted.</param>
+			<param name="text">The text to display.</param>
+			<param name="width">The starting width.</param>
+			<param name="horizontalAlign">The horizontal alignment of the text, will default vertical alignment to middle.</param>
+			<returns>
+				The <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> that was inserted into the collection.
+			</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.Insert(System.Int32,System.String,System.Int32,System.Drawing.ContentAlignment)">
+			<summary>
+				Creates a new header and inserts it into the collection at the specified index.
+			</summary>
+			<param name="index">The zero-based index location where the column is inserted.</param>
+			<param name="text">The text to display.</param>
+			<param name="width">The starting width.</param>
+			<param name="contentAlign">The content alignment.</param>
+			<returns>
+				The <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> that was inserted into the collection.
+			</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.Remove(Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader)">
+			<summary>
+				Removes the specified <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> from the collection.
+			</summary>
+			<param name="column">
+				A <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> to remove from the collection.
+			</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.Remove(Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader,System.Boolean)">
+			<summary>
+				Removes the specified <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> from the collection.
+			</summary>
+			<param name="column">
+				A <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> to remove from the collection.
+			</param>
+			<param name="removeSubItems">
+				<b>True</b> if you want to remove the subitems, <b>false</b> otherwise.
+			</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.RemoveAt(System.Int32)">
+			<summary>
+				Removes the column at the specified location.
+			</summary>
+			<param name="index">The zero-based index of the column you want to remove.</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.RemoveAt(System.Int32,System.Boolean)">
+			<summary>
+				Removes the column at the specified location.
+			</summary>
+			<param name="index">The zero-based index of the column you want to remove.</param>
+			<param name="removeSubItems">
+				<b>True</b> if you want to remove the subitems, <b>false</b> otherwise.
+			</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.IndexOf(Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader)">
+			<summary>
+				Returns the index within the collection of the specified column.
+			</summary>
+			<param name="column">
+				A <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> representing the column to locate in the collection.
+			</param>
+			<returns>The zero-based index of the column's location in the collection.  If the column is not located in the collection the return value is negative one (-1).</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.DisplayIndexOf(Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader)">
+			<summary>
+				Returns the display index of the specified column.
+			</summary>
+			<param name="column"> representing the column to locate.</param>
+			<returns>The zero-based display index of the column's location in the collection.  If the column is not located in the collection the return value is negative one (-1).</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.Contains(Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader)">
+			<summary>
+				Determines whether the specified column is located in the collection.
+			</summary>
+			<param name="column">
+				A <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> representing the column to locate in the collection.
+			</param>
+			<returns>
+				<b>true</b> if the column is contained in the collection; otherwise, <b>false</b>.
+			</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.Clear">
+			<summary>
+				Removes all columns from the collection.
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.CopyTo(Rstd.Controls.ContainerListViews.ContainerListViewItem[],System.Int32)">
+			<summary>
+				Copies the entire collection into an existing array at a specified location within the array.
+			</summary>
+			<param name="array">The destination array.</param>
+			<param name="arrayIndex">
+				The zero-based relative index in <em>array</em> at which copying begins.
+			</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.GetEnumerator">
+			<summary>
+				Returns an <see cref="T:System.Collections.IEnumerator"/> for the collection.
+			</summary>
+			<returns>
+				An <see cref="T:System.Collections.IEnumerator"/> for the collection.
+			</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.GetDisplayOrderEnumerator">
+			<summary>
+				Returns an <see cref="T:System.Collections.IEnumerator"/> for the collection ordered by the display index.
+			</summary>
+			<returns>
+				An <see cref="T:System.Collections.IEnumerator"/> for the collection ordered by the display index.
+			</returns>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.Item(System.Int32)">
+			<summary>
+				Gets or sets the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> at the specified index.
+				In C#, this property is the indexer for the <b>ContainerListViewColumnHeaderCollection</b> class.
+			</summary>
+			<value>
+				The <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> at the specified index.
+			</value>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.Count">
+			<summary>
+				Gets the number of <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> in this collection.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.IsFixedSize">
+			<summary>
+				Gets a value indicating whether the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection"/> has a fixed size.
+			</summary>
+			<value>
+				This property is always <b>false</b>.
+			</value>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.IsReadOnly">
+			<summary>
+				Gets a value indicating whether the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection"/> is read-only.
+			</summary>
+			<value>
+				This property is always <b>false</b>.
+			</value>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.SyncRoot">
+			<summary>
+				Gets an object that can be used to synchronize access to the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection"/>.
+			</summary>
+			<value>
+				An object that can be used to synchronize access to the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection"/>.
+			</value>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.IsSynchronized">
+			<summary>
+				Gets a value indicating whether access to the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection"/> is synchronized.
+			</summary>
+			<value>
+				This property is always <b>false</b>.
+			</value>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection.ListView">
+			<summary>
+				Gets the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListView"/> that this collection is attached to.
+			</summary>
+		</member>
+		<member name="F:RSTD.frmGoTo.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmGoTo.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.frmGoTo.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmGoTo.ProcessDialogKey(System.Windows.Forms.Keys)">
+			<summary>
+				this function handling the tab, because the heyDown and keyPressed events dont capture tab
+			</summary>
+			<param name="key">the key that was pressed</param>
+			<returns>handled or not</returns>
+		</member>
+		<member name="M:RSTD.RstdXmlTreeWrapper.MergeToMainXmlTree(System.Xml.XmlNode)">
+			<summary>
+				Merge the new tree into another tree document
+			</summary>
+			<param name="new_tree">The new tree to merge</param>
+		</member>
+		<member name="M:RSTD.RstdXmlTreeWrapper.MergeToMainXmlTree(System.Xml.XmlDocument,System.Xml.XmlNode)">
+			<summary>
+				Merge the new tree into another tree document
+			</summary>
+			<param name="doc">The document holding the xml to merge into</param>
+			<param name="new_tree">The new tree to merge</param>
+		</member>
+		<member name="M:RSTD.RstdXmlTreeWrapper.bAreAllRegisterFieldsUpdated(System.Xml.XmlNode)">
+			<summary>
+				Returns if all the register fields are updated or not.
+			</summary>
+			<param name="reg_node">The register to check</param>
+			<returns>The check result</returns>
+		</member>
+		<member name="M:RSTD.RstdXmlTreeWrapper.iCalcAllRegisterValues">
+			<summary>
+				Calculates all the register values from their fields values.
+			</summary>
+		</member>
+		<member name="M:RSTD.LuaWrapperUtils.#cctor">
+			<summary>
+				Ctor
+			</summary>
+		</member>
+		<member name="M:RSTD.LuaWrapperUtils.CheckIfLuaPackage(System.String)">
+			<summary>
+				Return bool which indicates if AmILuaPackage is a Lua package
+				this function throw an unclear exception on string that contains
+				spaces. therefor it returns false for string that contains spaces,
+				because there is no Lua package that contains spaces!
+			</summary>
+			<param name="AmILuaPackage"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.LuaWrapperUtils.CheckIfLuaReturnValue(System.String,System.Threading.Thread@,System.Boolean@)">
+			<summary>
+				Checks if AmILuaCommandWhichReturnValue end with ";"
+				1. if end with ";" returns null
+				2. else returns the function's return value for the shell to
+				print it
+			</summary>
+			<param name="lua_command"></param>
+			<param name="lua_command_thread"></param>
+			<param name="aborted"></param>
+			<returns>string contains the, not end with semicolon function ,return value</returns>
+		</member>
+		<member name="M:RSTD.LuaWrapperUtils.IfExistInTable(System.String,System.String)">
+			<summary>
+				Return bool indicates if string IfBelongToTableName is
+				a member in the table TableName.
+			</summary>
+			<param name="TableName"></param>
+			<param name="IfBelongToTableName"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.LuaWrapperUtils.GetTableContent(System.String)">
+			<summary>
+				Returns a string contains all TableName members Separated by space.
+			</summary>
+			<param name="TableName">The name of the table it members should be return</param>
+			<returns>A string contains all the tables members separated by space</returns>
+		</member>
+		<member name="M:RSTD.LuaWrapperUtils.RegisterLuaFunctionsToDotNet">
+			<summary>
+				Introduce Lua packages to C#
+			</summary>
+		</member>
+		<member name="M:RSTD.LuaWrapperUtils.GetTableContentByType(System.String,System.String)">
+			<summary>
+				Returns a string contains all the members of a table with type "type"
+			</summary>
+			<param name="TableName">The name of the table</param>
+			<param name="type">the type that should be checked against the members</param>
+			<returns>A string contains all the tables members of type "type" separated by space</returns>
+		</member>
+		<member name="M:RSTD.LuaWrapperUtils.CheckIfPackagesEqual(System.String,System.String)">
+			<summary>
+				Compare to packages and return true if equals.
+			</summary>
+			<param name="package1">package 1 to compare</param>
+			<param name="package2">package 2 to compare</param>
+			<returns>bool indicate if the packages are equal or not</returns>
+		</member>
+		<member name="M:RSTD.LuaWrapperUtils.AddLuaShellHistoryCommandsToDictionary">
+			<summary>
+				Add all Lua commands and help to the dictionary.
+				This is the only place that gathered it together.
+			</summary>
+		</member>
+		<member name="M:RSTD.LuaWrapperUtils.GetLuaShellCommands">
+			<summary>
+				Convert Lua shell commands dictionary into a StringBuilder that
+			</summary>
+			<returns>String contains all shell command</returns>
+		</member>
+		<member name="M:RSTD.LuaWrapperUtils.ChangeDictionaryKeysToStringSeperatedByAt">
+			<summary>
+				Convert Lua shell commands dictionary into a string that
+				holds all the commands separated by at (the string don't ends with at)
+			</summary>
+			<returns>string contains all shell command separated by at</returns>
+		</member>
+		<member name="F:RSTD.frmFind.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmFind.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.frmFind.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="F:RSTD.UpdateDialog.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.UpdateDialog.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.UpdateDialog.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="M:RSTD.UpdateDialog.iGetCorrectValueByDisplayType(System.String)">
+			<summary>
+				Adding prefix or suffix to the value if needed
+			</summary>
+			<param name="value">value to fix</param>
+			<returns>returns a string with the correct prefix/suffix</returns>
+		</member>
+		<member name="M:RSTD.UpdateDialog.iGetCorrectValueByDisplayType(System.String,System.String)">
+			<summary>
+				Adding prefix or suffix to complex value (real,img) if needed
+			</summary>
+			<param name="real">real value</param>
+			<param name="imaginary">imaginary value</param>
+			<returns>returns a string with the correct prefix/suffix</returns>
+		</member>
+		<member name="F:RSTD.UpdateDialog_FixMode_New.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.UpdateDialog_FixMode_New.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.UpdateDialog_FixMode_New.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmLuaShell.#ctor(RSTD.frmMain)">
+			<summary>
+				Ctor
+			</summary>
+			<param name="main_form"></param>
+		</member>
+		<member name="M:RSTD.frmLuaShell.hLuaShellCommandEntered(System.Object,RSTD.CommandEnteredEventArgs)">
+			<summary>
+				Handles all commands entered to lua shell.
+			</summary>
+			<param name="sender"></param>
+			<param name="e"></param>
+		</member>
+		<member name="M:RSTD.frmLuaShell.CookSpecificHelpArgs(System.String@)">
+			<summary>
+				Extract the arg of help
+			</summary>
+			<param name="command">the command to extract the arg from</param>
+		</member>
+		<member name="M:RSTD.frmLuaShell.iHandleClearHistory">
+			<summary>
+				The command clear history clears the buffers of history
+				And erases the Lua's command history file.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmLuaShell.iAppendToLuaShellCommandsStr(System.String)">
+			<summary>
+				Appends "command" to m_LuaShellTextFromStart (a string that holds all lua shell commands)
+				If cls command was entered it gets a special treatment
+				because it clears all the shell previous commands which
+				assign to all_shell_text
+			</summary>
+			<param name="command">new command to add to the shell</param>
+		</member>
+		<member name="M:RSTD.frmLuaShell.iCommandEndBlockHandle">
+			<summary>
+				Handles the command endblock meaning shows
+				the real prompt and execute all the commands in the block.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmLuaShell.iCommandBeginBlockHandle">
+			<summary>
+				Handles the command beginblock meaning replaces the current prompt with
+				an empty prompt and Set the flag that indicates the Shell is currently in block
+			</summary>
+		</member>
+		<member name="M:RSTD.frmLuaShell.saveLuaShellLayoutToolStripMenuItem_Click(System.Object,System.EventArgs)">
+			<summary>
+				Saves Lua shell Layout
+			</summary>
+			<param name="sender"></param>
+			<param name="e"></param>
+		</member>
+		<member name="M:RSTD.frmLuaShell.loadLuaShellLayoutToolStripMenuItem_Click(System.Object,System.EventArgs)">
+			<summary>
+				Load Lua Shell Layout
+			</summary>
+			<param name="sender"></param>
+			<param name="e"></param>
+		</member>
+		<member name="M:RSTD.frmLuaShell.iRunScriptAndWriteToShell(System.String)">
+			<summary>
+				Print file fileName to Shell and execute it
+			</summary>
+			<param name="fileName"></param>
+		</member>
+		<member name="M:RSTD.frmLuaShell.fontToolStripMenuItem_Click_1(System.Object,System.EventArgs)">
+			<summary>
+				Handles Font Dialog
+				Saves to RstdGuiSettings
+			</summary>
+			<param name="sender"></param>
+			<param name="e"></param>
+		</member>
+		<member name="M:RSTD.frmLuaShell.h_BackgroundColorToolStripMenuItem_Click(System.Object,System.EventArgs)">
+			<summary>
+				Handles Lua Shell BackGround color
+				Saves to RstdGuiSettings
+			</summary>
+			<param name="sender"></param>
+			<param name="e"></param>
+		</member>
+		<member name="M:RSTD.frmLuaShell.h_foregroundColorToolStripMenuItem_Click(System.Object,System.EventArgs)">
+			<summary>
+				Handles Lua Shell ForeGround color
+				Saves to RstdGuiSettings
+			</summary>
+			<param name="sender"></param>
+			<param name="e"></param>
+		</member>
+		<member name="M:RSTD.frmLuaShell.iLoadLuaHistory">
+			<summary>
+				Load Lua history from the Lua's command history file.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmLuaShell.iHandlePrint(System.String,System.String)">
+			<summary>
+				Prints commands execution in lua shell
+			</summary>
+		</member>
+		<member name="M:RSTD.frmLuaShell.iHandleDoFile(System.String)">
+			<summary>
+				Execute the dofile command, searches
+				for every path given in lua_path if command
+				exist. If the files was found the search stops.
+			</summary>
+			<param name="command">current command in Lua shell</param>
+		</member>
+		<member name="M:RSTD.frmLuaShell.CookHelpStrings(System.String)">
+			<summary>
+				Gets all RSTD documentation from HelpCommandRstd into
+				a string and parse it for output in Lua shell.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmLuaShell.ChangeTextColor(System.Drawing.Color)">
+			<summary>
+				Selecting Color for the text
+			</summary>
+		</member>
+		<member name="M:RSTD.frmLuaShell.ParseMethodLineString(System.String)">
+			<summary>
+				Parsing method signature and coloring syntax
+			</summary>
+		</member>
+		<member name="M:RSTD.frmLuaShell.HandleHistory(System.Text.StringBuilder@)">
+			<summary>
+				Execute the history command, meaning print all
+				commands been executed.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmLuaShell.HandlePrompt(System.String)">
+			<summary>
+				Changes the prompt
+			</summary>
+			<param name="command"></param>
+		</member>
+		<member name="M:RSTD.frmLuaShell.HelpMenu">
+			<summary>
+				Prints the help menu without the RSTD commands.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmLuaShell.PrimerHelpMenu">
+			<summary>
+				Prints the first help menu
+			</summary>
+		</member>
+		<member name="M:RSTD.frmLuaShell.PrintLuaPackages">
+			<summary>
+				Prints all Lua packages to Lua shell
+			</summary>
+		</member>
+		<member name="M:RSTD.frmLuaShell.HandleLuaPackage(System.String)">
+			<summary>
+				Calls PrintPackage() to prints all "package_name" members.
+				and also prints to the shell the related link for further information
+				about "package_name".
+			</summary>
+			<param name="package_name">The name of the package</param>
+		</member>
+		<member name="M:RSTD.frmLuaShell.PrintPackageContent(System.String)">
+			<summary>
+				Prints package_name content
+			</summary>
+			<param name="package_name">The name of the package</param>
+		</member>
+		<member name="M:RSTD.frmLuaShell.PrintHelpSpecificCommand(System.String)">
+			<summary>
+				Prints help for the command "specific_cmd"
+			</summary>
+			<param name="specific_cmd"></param>
+		</member>
+		<member name="M:RSTD.frmLuaShell.ibCheckModuleFunction(System.String,System.String@)">
+			<summary>
+				Check if help argument is indeed a module function
+			</summary>
+			<param name="command">help full argument</param>
+			<param name="helpOnSpecificCommand">string contains a documentation for the command</param>
+			<returns>bool indicates function's success</returns>
+		</member>
+		<member name="M:RSTD.frmLuaShell.HelpOnSpecificRSTDFunction(System.String,System.String@)">
+			<summary>
+
+			</summary>
+			<param name="is_rttt_function">string contains only RSTD function</param>
+			<param name="helpOnSpecificCommand">string contains a documentation in case the function indeed resides under RSTD package  </param>
+			<returns>bool indicates function's success</returns>
+		</member>
+		<member name="M:RSTD.frmLuaShell.iRegisterShellPrintFunctionToLua">
+			<summary>
+				Performs the registration of functions written in C# to
+				Lua, For Lua to use it.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmLuaShell.ShellPrint(System.String)">
+			<summary>
+				Prints print_me to lua shell
+			</summary>
+			<param name="print_me"> what to print to lua shell </param>
+		</member>
+		<member name="M:RSTD.frmLuaShell.iHandleSave(System.String,System.String)">
+			<summary>
+				Handles the Save Dialog
+			</summary>
+			<param name="title">A string representation of the Save option title</param>
+			<param name="filter">A string representation of the Save option filter</param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.frmLuaShell.iSaveCommandsToFile(System.String,System.Text.StringBuilder)">
+			<summary>
+				Saves in file "filename" whatToSave.
+			</summary>
+			<param name="fileName"></param>
+			<param name="whatToSave"></param>
+		</member>
+		<member name="M:RSTD.frmLuaShell.iSaveAllLuaShellToolStripMenuItem_Click(System.Object,System.EventArgs)">
+			<summary>
+				Saves all Lua shell into a file
+			</summary>
+			<param name="sender"></param>
+			<param name="e"></param>
+		</member>
+		<member name="M:RSTD.frmLuaShell.hSaveLuaShellCommandsToolStripMenuItem_Click(System.Object,System.EventArgs)">
+			<summary>
+				Saves all Lua shell commands into a file
+			</summary>
+			<param name="sender"></param>
+			<param name="e"></param>
+		</member>
+		<member name="M:RSTD.frmLuaShell.iGetRelevantCommandFromHistory(System.String[])">
+			<summary>
+				Return a StringBuilder contains all the Executed commands
+				in Lua shell
+			</summary>
+			<param name="commands"></param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.frmLuaShell.iCheckIfCommandIsPackageCommand(System.String)">
+			<summary>
+				Returns true if command is not a Lua command
+			</summary>
+			<param name="command">command to check</param>
+			<returns></returns>
+		</member>
+		<member name="M:RSTD.frmLuaShell.hDefaultToolStripMenuItem_Click(System.Object,System.EventArgs)">
+			<summary>
+				Return Lua layout to its default(default defined by the form output)
+			</summary>
+			<param name="sender"></param>
+			<param name="e"></param>
+		</member>
+		<member name="M:RSTD.frmLuaShell.RstdGuiSettingsToLuaShellLayout">
+			<summary>
+				This function runs over the values given in the designer
+				It is not in the designer to prevent the values to be ruined by it
+			</summary>
+		</member>
+		<member name="F:RSTD.frmLuaShell.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmLuaShell.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.frmLuaShell.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="F:RSTD.frmRecord.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmRecord.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.frmRecord.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="T:Rstd.Controls.ContainerListViews.ContainerListViewSubItem">
+			<summary>
+				Represents a subitem of a <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/>.
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewSubItem.#ctor(System.Int32)">
+			<summary>
+				Initializes a new instance of the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewSubItem"/> class.
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewSubItem.#ctor(System.String)">
+			<summary>
+				Initializes a new instance of the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewSubItem"/> class with the specified text.
+			</summary>
+			<param name="text">The text you want to appear for this sub item.</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewSubItem.Clone">
+			<summary>
+				Creates a close clone of this sub-item that is unattached to any item.
+				Since a control cannot exist in two places at once, it does not copy
+				the ItemControl property.
+			</summary>
+			<returns></returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewSubItem.Refresh">
+			<summary>
+				Forces a repaint of this subitem.
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewSubItem.ToString">
+			<summary>
+				Returns the value of the <b>Text</b> property or the <b>Text</b> property of the control returned by the <B>ItemControl</B> property.
+			</summary>
+			<returns>The text of the subitem</returns>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewSubItem.BackColor">
+			<summary>
+				Gets or sets the background color of the subitem.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewSubItem.ForeColor">
+			<summary>
+				Gets or sets the color of the subitem's text.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewSubItem.Font">
+			<summary>
+				Gets or sets the font of the text displayed by the subitem.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewSubItem.Text">
+			<summary>
+				Gets or sets the text of the subitem.  If <B>ItemControl</B> is set, this value is ignored.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewSubItem.ItemControl">
+			<summary>
+				Gets or sets the contained Control that will be drawn in this subitem
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewSubItem.ControlResizeBehavior">
+			<summary>
+				Gets or sets how the sub control should resize in response to the size of its containing cell
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewSubItem.Tag">
+			<summary>
+				Gets or sets the user-defined data to associate with this item.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewSubItem.Item">
+			<summary>
+				Gets the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> this SubItem belongs to
+			</summary>
+		</member>
+		<member name="F:RSTD.frmQuickHelp.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmQuickHelp.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.frmQuickHelp.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="T:RSTD.RstdGuiSettings">
+			<summary>
+				Saves all the Gui Settings. Implemented as a singleton.
+			</summary>
+		</member>
+		<member name="F:RSTD.Splash.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.Splash.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.Splash.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="F:RSTD.frmMaxLog.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmMaxLog.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.frmMaxLog.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="F:RSTD.frmHandleMsg.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmHandleMsg.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.frmHandleMsg.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="M:RSTD.VariableContextMenu.iAddDisplayAsItems">
+			<summary>
+				Add menu items for Display as which are valid for the selected nodes
+			</summary>
+		</member>
+		<member name="M:RSTD.VariableContextMenu.iAddMonitorClocksItems">
+			<summary>
+				Add menu items for clock selection of Add Monitor
+			</summary>
+		</member>
+		<member name="M:RSTD.TabTreePage.iDoGuiOperationByKeyShortcuts(System.Object,RSTD.RstdConstants.GUI_OPERATION)">
+			<summary>
+				Does gui operation, e.g. transmit/recieve according to key shortcut.
+			</summary>
+			<param name="sender">The control which got the key strike</param>
+			<param name="gui_operation">The operation to perform</param>
+		</member>
+		<member name="M:RSTD.frmWorkSet.iDoGuiOperationByKeyShortcuts(System.Object,RSTD.RstdConstants.GUI_OPERATION)">
+			<summary>
+				Does gui operation, e.g. transmit/recieve according to key shortcut.
+			</summary>
+			<param name="sender">The control which got the key strike</param>
+			<param name="gui_operation">The operation to perform</param>
+		</member>
+		<member name="M:RSTD.frmWorkSet.iSortColumns(Rstd.Controls.ContainerListViews.ContainerListView@)">
+			<summary>
+				For each column in ListView assign it's sort property
+			</summary>
+		</member>
+		<member name="M:RSTD.frmWorkSet.SortListViewColumns(System.Boolean)">
+			<summary>
+				for each column in ListView assign it's sort property accordingly
+				the value in sort_state.
+			</summary>
+			<param name="sort_state">bool indicates if all columns property should be sorted ot not</param>
+		</member>
+		<member name="M:RSTD.frmWorkSet.UpdateXmlNodeFromLoadedNode(System.Xml.XmlNode,System.Xml.XmlNode@)">
+			<summary>
+				update tree_node attributes to the real values from loaded_node
+			</summary>
+			<param name="loaded_node">source xmlNode</param>
+			<param name="tree_node">destination xmlNode</param>
+		</member>
+		<member name="F:RSTD.frmWorkSet.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmWorkSet.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.frmWorkSet.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="F:RSTD.frmUserButtonConfig.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmUserButtonConfig.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.frmUserButtonConfig.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmUpdateArrayDialog.iInitializeArrayDialog">
+			<summary>
+				Fills frmUpdateArrayDialog offset, stride, length and icon
+				with the suitable values of the chosen variable
+			</summary>
+		</member>
+		<member name="M:RSTD.frmUpdateArrayDialog.iFillUpdateArrayDialog">
+			<summary>
+				Fills the grid containing the array matching
+				to the given offset, stride and length
+			</summary>
+		</member>
+		<member name="M:RSTD.frmUpdateArrayDialog.iFillUpdateXYList(System.Boolean)">
+			<summary>
+				Fills the grid containing the array matching
+				to the given offset, stride and length
+			</summary>
+		</member>
+		<member name="M:RSTD.frmUpdateArrayDialog.CalcGridHeight(System.Int32)">
+			<summary>
+				Returns the calculated height of the grid according to the # of rows needed.
+			</summary>
+			<returns>height of grid</returns>
+		</member>
+		<member name="M:RSTD.frmUpdateArrayDialog.ibCheckIfGridChanged">
+			<summary>
+				Check UpdateArrayDialog offset, stride, length and array values
+				against the xml
+			</summary>
+			<returns>bool indicates if any of the controls in the dialog differ from the XML</returns>
+		</member>
+		<member name="M:RSTD.frmUpdateArrayDialog.iUpdateXmlFromGrid">
+			<summary>
+				Checks if any of the array values changed include
+				offset, stride and length
+			</summary>
+		</member>
+		<member name="F:RSTD.frmUpdateArrayDialog.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.frmUpdateArrayDialog.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.frmUpdateArrayDialog.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="F:RSTD.UpdateDialog_FixMode.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.UpdateDialog_FixMode.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.UpdateDialog_FixMode.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="T:Rstd.Controls.ContainerListViews.ContainerListView">
+			<summary>
+				Provides a ListView control in detail mode that provides containers for each cell in a row/column.
+				The container can hold almost any object that derives directly or indirectly from Control.
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.ContainerListView._lastUserSingleClickedItem">
+			<summary>Last item clicked by the user (without any control key down). Used in OnMouseUp.</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.ContainerListView._headerVisibleRect">
+			<summary>the visible portion of the header control</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.ContainerListView._detailVisibleRect">
+			<summary>the visible portion of the detail area</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.ContainerListView._detailRect">
+			<summary>the rectangle representing the entire grid</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.ContainerListView._headerColumnRects">
+			<summary>each column header and the filler column</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.ContainerListView._headerColumnSizeRects">
+			<summary>each area that will allow column resizing</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.ContainerListView._isScrollingUp">
+			<summary></summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.BeginUpdate">
+			<summary>
+				Halts drawing, sorting, filtering, and some internal functions
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.EndUpdate">
+			<summary>
+				Resumes everything that was halted when BeginUpdate was called
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.EnsureVisible">
+			<summary>
+				Ensures that the currently focused item is visible, will scroll as necessary
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.EnsureVisible(Rstd.Controls.ContainerListViews.ContainerListViewItem)">
+			<summary>
+				Ensures that the item is visible, will scroll as necessary
+			</summary>
+			<param name="item">The item you want to ensure visibility of</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.Sort(System.Boolean)">
+			<summary>
+				Refreshes the sort, uses the current sorting information
+			</summary>
+			<param name="recursive">
+				<b>True</b> if you want to sort child items as well, <b>false</b> if you want to only sort the root items.
+			</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.Sort(System.Int32,System.Boolean,System.Boolean)">
+			<summary>
+				Adds a column to the sort
+			</summary>
+			<param name="columnIndex">The zero-based index of the column to add to the sort</param>
+			<param name="autoSortOrder">If true will determine the sort order automatically, if false will use the columns default sort order (or ascending if that isn't set)</param>
+			<param name="clearCurrentSort">Whether to clear the current sort before adding this one</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.Sort(System.Int32,System.Windows.Forms.SortOrder,System.Boolean)">
+			<summary>
+				Adds a column to the sort
+			</summary>
+			<param name="columnIndex">The zero-based index of the column to add to the sort</param>
+			<param name="sortOrder">The order to sort the column by</param>
+			<param name="clearCurrentSort">Whether to clear the current sort before adding this one</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.SetFilter(System.Int32,System.String)">
+			<summary>
+				Recursively sets a simple text (case insensitive) filter to all items
+			</summary>
+			<param name="columnIndex">The zero-based index of the column you want this text filter to filter on</param>
+			<param name="filterText">
+				The text you would like to filter on. <value>null</value> to reset the filter
+			</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.SetFilter(Rstd.Controls.ContainerListViews.IFilter)">
+			<summary>
+				Recursively sets a custom filter to all items
+			</summary>
+			<param name="filter">
+				The custom <see cref="T:Rstd.Controls.ContainerListViews.IFilter"/>
+			</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.ResetFilter">
+			<summary>
+				Recursively removes any custom applied filters to all items
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.AutoSizeColumnWidths(System.Boolean)">
+			<summary>
+				Resizes all of the columns to fit their text
+			</summary>
+			<param name="includeItemWidths">
+				<b>True</b> if you want it to include the texts of the sub-items below it
+			</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.SetColumnDisplayIndex(Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader,System.Int32,System.Boolean)">
+			<summary>
+				Sets the new placement for the column to be displayed at. if called by the draga and drop
+				operation (from OnMouseUp) then index is the index after the actual (phsyical) index
+				else the index is the new display index.
+			</summary>
+			<param name="column">the column to move</param>
+			<param name="index">see summery note</param>
+			<param name="is_drag_and_drop">is called by the drag and drop operation</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.SetItemSelected(Rstd.Controls.ContainerListViews.ContainerListViewItem,System.Boolean,System.Boolean,System.Boolean)">
+			<summary>
+				should be internal, don't use
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.SetItemSelected(Rstd.Controls.ContainerListViews.ContainerListViewItem,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+			<summary>
+				should be internal, don't use
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.RecalculateLayout(System.Boolean,System.Boolean)">
+			<summary>
+				Calculates the virtual rectangle of the header rectangle and it's specific columns
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.RecalculateItemPositions(Rstd.Controls.ContainerListViews.ContainerListViewItem)">
+			<summary>
+
+			</summary>
+			<param name="startAt">
+				<value>null</value> to recalculate all items
+			</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.UpdateScrollbars">
+			<summary>
+				Updates the visibility and page sizes of the scroll bars
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.selectRange(Rstd.Controls.ContainerListViews.ContainerListViewItem,Rstd.Controls.ContainerListViews.ContainerListViewItem)">
+			<summary>
+
+			</summary>
+			<param name="itemFrom">initial item</param>
+			<param name="itemTo">item selected by the user</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.DrawBorder(System.Drawing.Graphics)">
+			<summary>
+				Called when the border of the control needs to be painted
+			</summary>
+			<param name="g">The graphics object to draw the border on</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.drawBorderWithStyles(System.Drawing.Graphics)">
+			<summary>
+				Tries to draw the border with Visual Styles but falls back to normal drawing in case of error.
+			</summary>
+			<param name="g">The graphics object to draw the border on</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.drawBorderWithoutStyles(System.Drawing.Graphics)">
+			<param name="g">The graphics object to draw the border on</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.DrawBackground(System.Drawing.Graphics,System.Drawing.Rectangle)">
+			<summary>
+				Called when the background of the detail area needs to be painted
+			</summary>
+			<param name="g">The graphics object to draw the background on</param>
+			<param name="rectangle">The rectangle representing the portion of the control that needs to be painted</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.DrawGridLines(System.Drawing.Graphics,System.Drawing.Rectangle)">
+			<summary>
+				Called when grid lines need to be painted
+			</summary>
+			<param name="g">The graphics object to draw the grid lines on</param>
+			<param name="rect">The rectangle representing the portion of the control that needs to be painted</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListView.DrawHeaders(System.Drawing.Graphics,System.Drawing.Rectangle)">
+			<summary>
+				Draws the header control
+			</summary>
+			<param name="g">The graphics object to draw the header control on</param>
+			<param name="clip">The portion of the header control to redraw</param>
+		</member>
+		<member name="M:RSTD.ShellTextBox.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+		</member>
+		<member name="M:RSTD.ShellTextBox.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="M:RSTD.ShellTextBox.hShellTextBox_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+			<summary>
+				Handle Home, Escape, Down, Up, Right and Tab keys in KeyDown. A bug in .NET 1.1
+				prevents the e.Handled = true from having the desired effect in KeyDown
+			</summary>
+			<param name="sender"></param>
+			<param name="e"></param>
+		</member>
+		<member name="M:RSTD.ShellTextBox.iHandleKeyUp">
+			<summary>
+				Handle KeyUp completion
+			</summary>
+		</member>
+		<member name="M:RSTD.ShellTextBox.iHandleKeyDown">
+			<summary>
+				Handle KeyDown completion
+			</summary>
+		</member>
+		<member name="M:RSTD.ShellTextBox.OrdinaryCommandHistoryCompletion">
+			<summary>
+				Zeroing history indexes for a new completion
+			</summary>
+		</member>
+		<member name="M:RSTD.ShellTextBox.iHandlePaste">
+			<summary>
+				Handle Copy-Paste to Lua shell either one line paste
+				or multiple line paste
+			</summary>
+		</member>
+		<member name="M:RSTD.ShellTextBox.iAppendCommandToShellAndExecute(System.String)">
+			<summary>
+				Append command to Lua shell and execute it
+			</summary>
+			<param name="command">The command</param>
+		</member>
+		<member name="M:RSTD.ShellTextBox.iClipBoardHandle">
+			<summary>
+				Checks the clipboard content format and retrieves it's data
+			</summary>
+			<returns>string contains all clipboard content</returns>
+		</member>
+		<member name="M:RSTD.ShellTextBox.printPrompt">
+			<summary>
+				Prints this.Text
+			</summary>
+		</member>
+		<member name="M:RSTD.ShellTextBox.printLine">
+			<summary>
+				Prints new line
+			</summary>
+		</member>
+		<member name="M:RSTD.ShellTextBox.GetCurrentLine">
+			<summary>
+				return the current prompt line
+			</summary>
+			<returns>current prompt</returns>
+		</member>
+		<member name="M:RSTD.ShellTextBox.GetTextAtPrompt">
+			<summary>
+				Returns the current line without the prompt
+			</summary>
+			<returns>current line without the prompt</returns>
+		</member>
+		<member name="M:RSTD.ShellTextBox.ReplaceTextAtPrompt(System.String)">
+			<summary>
+				Replaces text at prompt
+			</summary>
+			<param name="text"></param>
+		</member>
+		<member name="M:RSTD.ShellTextBox.IsCaretAtCurrentLine">
+			<summary>
+				Check if the Mouse Caret is in the last line
+			</summary>
+			<returns>bool indicates if the caret is in the last line</returns>
+		</member>
+		<member name="M:RSTD.ShellTextBox.MoveCaretToEndOfText">
+			<summary>
+				Moves mouse caret to the end of the text
+			</summary>
+		</member>
+		<member name="M:RSTD.ShellTextBox.IsCaretJustBeforePrompt">
+			<summary>
+				Check if the mouse caret is before the prompt - i.e - in a forbidden place
+			</summary>
+			<returns>bool indicates if the caret is before prompt</returns>
+		</member>
+		<member name="M:RSTD.ShellTextBox.GetCurrentCaretColumnPosition">
+			<summary>
+				Check the position of the caret against the current line
+			</summary>
+			<returns>the position of the mouse caret against the current line</returns>
+		</member>
+		<member name="M:RSTD.ShellTextBox.GetCurrentCaretColumnPositionForPaste">
+			<summary>
+				Check the position of the caret against the current line and it's prompt
+			</summary>
+			<returns>the position of the mouse caret against the current line and it's prompt</returns>
+		</member>
+		<member name="M:RSTD.ShellTextBox.IsCaretAtWritablePosition">
+			<summary>
+				Check if the caret is in writable place
+			</summary>
+			<returns>bool indicates if the caret is in writable place</returns>
+		</member>
+		<member name="M:RSTD.ShellTextBox.IsCaretAtWritablePositionForCopyPaste">
+			<summary>
+				Check if the caret is in writable place and in the middle of a string
+			</summary>
+			<returns>bool indicates if the caret is in writable place and in the middle of a string</returns>
+		</member>
+		<member name="M:RSTD.ShellTextBox.SetPromptText(System.String)">
+			<summary>
+				Controls the prompt
+			</summary>
+			<param name="val">the new prompt</param>
+		</member>
+		<member name="M:RSTD.ShellTextBox.WriteText(System.String)">
+			<summary>
+				Writes text to ShellTextBox
+			</summary>
+			<param name="text">text to write to the shell</param>
+		</member>
+		<member name="M:RSTD.ShellTextBox.AddText(System.String)">
+			<summary>
+				Add new text to Lua Shell
+			</summary>
+			<param name="text">new text to add</param>
+		</member>
+		<member name="F:RSTD.SettingsForm.components">
+			<summary>
+				Required designer variable.
+			</summary>
+		</member>
+		<member name="M:RSTD.SettingsForm.Dispose(System.Boolean)">
+			<summary>
+				Clean up any resources being used.
+			</summary>
+			<param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		</member>
+		<member name="M:RSTD.SettingsForm.InitializeComponent">
+			<summary>
+				Required method for Designer support - do not modify
+				the contents of this method with the code editor.
+			</summary>
+		</member>
+		<member name="T:Rstd.Controls.ContainerListViews.ContainerListViewItemCollection">
+			<summary>
+				Implements a strongly typed collection of <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> elements.
+			</summary>
+			<remarks>
+				<b>ContainerListViewItemCollection</b> provides an <see cref="T:System.Collections.ArrayList"/>
+				that is strongly typed for <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> elements.
+			</remarks>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItemCollection.Add(Rstd.Controls.ContainerListViews.ContainerListViewItem)">
+			<summary>
+				Adds an existing <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> object to the collection.
+			</summary>
+			<param name="item">
+				The <b>ContainerListViewItem</b> object to add to the collection.
+			</param>
+			<returns>The position into which the new element was inserted.</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItemCollection.Add(System.String)">
+			<summary>
+				Adds an item to the collection with the specified text.
+			</summary>
+			<param name="text">The text to display.</param>
+			<returns>
+				The <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> that was added to the collection.
+			</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItemCollection.Add(System.String,System.Int32)">
+			<summary>
+				Adds an item to the collection with the specified text and image index.
+			</summary>
+			<param name="text">The text to display.</param>
+			<param name="imageIndex">The index of the image to display.</param>
+			<returns>
+				The <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> that was added to the collection.
+			</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItemCollection.Add(System.String,System.Int32,System.Int32)">
+			<summary>
+				Adds an item to the collection with the specified properties.
+			</summary>
+			<param name="text">The text to display.</param>
+			<param name="imageIndex">The index of the image to display.</param>
+			<param name="selectedImageIndex">The index of the image to display when the item is selected.</param>
+			<returns>
+				The <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> that was added to the collection.
+			</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItemCollection.Insert(System.Int32,Rstd.Controls.ContainerListViews.ContainerListViewItem)">
+			<summary>
+				Inserts an existing <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> object to the collection at the specified index.
+			</summary>
+			<param name="index">The zero-based index location where the item is inserted.</param>
+			<param name="item">
+				The <b>ContainerListViewItem</b> object to add to the collection.
+			</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItemCollection.Insert(System.Int32,System.String)">
+			<summary>
+				Inserts an item to the collection with the specified text at the specified index.
+			</summary>
+			<param name="index">The zero-based index location where the item is inserted.</param>
+			<param name="text">The text to display.</param>
+			<returns>
+				The <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> that was added to the collection.
+			</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItemCollection.Insert(System.Int32,System.String,System.Int32)">
+			<summary>
+				Inserts an item to the collection with the specified text and image index at the specified index.
+			</summary>
+			<param name="index">The zero-based index location where the item is inserted.</param>
+			<param name="text">The text to display.</param>
+			<param name="imageIndex">The index of the image to display.</param>
+			<returns>
+				The <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> that was added to the collection.
+			</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItemCollection.Insert(System.Int32,System.String,System.Int32,System.Int32)">
+			<summary>
+				Inserts an item to the collection with the specified properties at the specified index.
+			</summary>
+			<param name="index">The zero-based index location where the item is inserted.</param>
+			<param name="text">The text to display.</param>
+			<param name="imageIndex">The index of the image to display.</param>
+			<param name="selectedImageIndex">The index of the image to display when the item is selected.</param>
+			<returns>
+				The <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> that was added to the collection.
+			</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItemCollection.Remove(Rstd.Controls.ContainerListViews.ContainerListViewItem)">
+			<summary>
+				Removes the specified <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> from the collection.
+			</summary>
+			<param name="item">
+				A <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> to remove from the collection.
+			</param>
+			<custom type="modified">Fixed bugs (the method was throwing exceptions) and improved the method.</custom>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItemCollection.RemoveRange(Rstd.Controls.ContainerListViews.ContainerListViewItemCollection)">
+			<summary>
+				Removes the specified collection of items from the collection.
+			</summary>
+			<param name="items">
+				A <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItemCollection"/> to remove from the collection.
+			</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItemCollection.RemoveRange(System.Collections.Generic.IList{Rstd.Controls.ContainerListViews.ContainerListViewItem})">
+			<summary>
+				Removes the specified collection of items from the collection.
+			</summary>
+			<param name="items">A list of items to remove from the collection.</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItemCollection.AddRange(Rstd.Controls.ContainerListViews.ContainerListViewItem[])">
+			<summary>
+				Adds an array of <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> objects to the collection.
+			</summary>
+			<param name="items">
+				An array of <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> objects to add to the collection.
+			</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItemCollection.IndexOf(Rstd.Controls.ContainerListViews.ContainerListViewItem)">
+			<summary>
+				Returns the index within the collection of the specified item.
+			</summary>
+			<param name="item">
+				A <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> representing the item to locate in the collection.
+			</param>
+			<returns>The zero-based index of the item's location in the collection.  If the item is not located in the collection the return value is negative one (-1).</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItemCollection.Contains(Rstd.Controls.ContainerListViews.ContainerListViewItem)">
+			<summary>
+				Determines whether the specified item is located in the collection.
+			</summary>
+			<param name="item">
+				A <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> representing the item to locate in the collection.
+			</param>
+			<returns>
+				<b>true</b> if the column is contained in the collection; otherwise, <b>false</b>.
+			</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItemCollection.Clear">
+			<summary>
+				Removes all items from the collection.
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItemCollection.Sort(System.Collections.IComparer,System.Boolean)">
+			<summary>
+				Sorts the elements using the specified comparer.
+			</summary>
+			<param name="comparer">
+				The <see cref="T:System.Collections.IComparer"/> to use when comparing elements.
+			</param>
+			<param name="recursiveSort">Whether to sort these items child items as well.</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItemCollection.CopyTo(Rstd.Controls.ContainerListViews.ContainerListViewItem[],System.Int32)">
+			<summary>
+				Copies the entire collection into an existing array at a specified location within the array.
+			</summary>
+			<param name="array">The destination array.</param>
+			<param name="arrayIndex">
+				The zero-based relative index in <em>array</em> at which copying begins.
+			</param>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItemCollection.Item(System.Int32)">
+			<summary>
+				Indicates the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> at the specified indexed
+				location in the collection.  In C#, this property is the indexer for the
+				<b>ContainerListViewItemCollection</b> class.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItemCollection.Count">
+			<summary>
+				Gets the number of items in this collection
+			</summary>
+		</member>
+		<member name="T:Rstd.Controls.ContainerListViews.ContainerListViewItem">
+			<summary>
+				Represents a single item (row) in a <see cref="T:Rstd.Controls.ContainerListViews.ContainerListView"/> control.
+			</summary>
+		</member>
+		<member name="F:Rstd.Controls.ContainerListViews.ContainerListViewItem._updateSuspended">
+			<summary>true while all refresh requests should be denied</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItem.#ctor">
+			<summary>
+				Initializes a new instance of the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> class.
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItem.#ctor(System.String)">
+			<summary>
+				Initializes a new instance of the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> class with the specified text for the first sub item.
+			</summary>
+			<param name="text">The text you want to appear for the first sub item.</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItem.#ctor(System.String,System.Int32)">
+			<summary>
+				Initializes a new instance of the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> class with the specified text for the first sub item and the specified image index.
+			</summary>
+			<param name="text">The text you want to appear for the first sub item.</param>
+			<param name="imageIndex">The index of the image you want displayed for the item.</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItem.#ctor(System.String,System.Int32,System.Int32)">
+			<summary>
+				Initializes a new instance of the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> class with the specified properties set.
+			</summary>
+			<param name="text">The text you want to appear for the first sub item.</param>
+			<param name="imageIndex">The index of the image you want displayed for the item.</param>
+			<param name="selectedImageIndex">The index of the image you want displayed for the item when it is in the selected state.</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItem.BeginUpdate">
+			<summary>
+				Halts drawing
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItem.EndUpdate">
+			<summary>
+				Resumes everything that was halted when BeginUpdate was called
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItem.Expand">
+			<summary>
+				Expands the item to display any child items.
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItem.Collapse">
+			<summary>
+				Collapses the item to hide any child items.
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItem.SetFilter(Rstd.Controls.ContainerListViews.IFilter,System.Boolean)">
+			<summary>
+				Sets the <see cref="T:Rstd.Controls.ContainerListViews.IFilter"/> this item should use to determine whether it is drawn.
+			</summary>
+			<param name="filter">
+				The <see cref="T:Rstd.Controls.ContainerListViews.IFilter"/> that will determine the visibility.
+			</param>
+			<param name="recursive">
+				Whether to distribute this <see cref="T:Rstd.Controls.ContainerListViews.IFilter"/> to all of its children (recursively).
+			</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewItem.Clone">
+			<summary>
+				Creates a copy of this <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> that is not attached to a list.
+			</summary>
+			<returns></returns>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.BackColor">
+			<summary>
+				Gets or sets the background color for the item.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.ForeColor">
+			<summary>
+				Gets or sets the <see cref="T:System.Drawing.Color"/> used to paint the item's text.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.Font">
+			<summary>
+				Gets or sets the <see cref="T:System.Drawing.Font"/> used to paint the item's text.  If left null it will use the font associated with the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListView"/> control.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.Text">
+			<summary>
+				Gets or sets the text of the first sub item for this item.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.Height">
+			<summary>
+				Gets or sets the height of this item.  Set to -1 to use the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListView"/> DefaultItemHeight property.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.Expanded">
+			<summary>
+				Gets or sets the items expanded state.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.ImageIndex">
+			<summary>
+				Gets or sets the index into the image list for this item's image.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.SelectedImageIndex">
+			<summary>
+				Gets or sets the index into the image list for this items' image while selected.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.SubItems">
+			<summary>
+				Gets the collection of <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewSubItem"/> this item is the owner of.  If this item is attached to a list view, this collection cannot be modified with add/insert/remove/clear.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.Items">
+			<summary>
+				Gets the collection of <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> this item is the parent of.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.Tag">
+			<summary>
+				Gets or sets the user-defined data to associate with this item.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.Selected">
+			<summary>
+				Gets or sets whether this control is currently part of the selected collection.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.PreviousVisibleItem">
+			<summary>
+				Gets the previous visible item.
+			</summary>
+			<remarks>
+				The <b>PreviousVisibleItem</b> can be a child, sibling, or a tree node from another branch.  If there is not previous tree node, the <b>PrevVisibleNode</b> property returns a null reference (<b>Nothing</b> in Visual Basic).
+			</remarks>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.PreviousItem">
+			<summary>
+				Gets the previous sibling tree node.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.NextVisibleItem">
+			<summary>
+				Gets the next visible item.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.NextItem">
+			<summary>
+				Gets the next sibling item.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.NextTreeItem">
+			<summary>
+				Gets the next item in the tree
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.FirstItem">
+			<summary>
+				Gets the first child item.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.LastItem">
+			<summary>
+				Gets the last child item.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.VeryLastItem">
+			<summary>
+				Gets the recursively last child item of its last child item.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.Hovered">
+			<summary>
+				Gets or sets whether the mouse is currently hovering over this item.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.Y">
+			<summary>
+				Gets the virtual y-axis position of this item.  The first item in the control will always return zero (0).
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.ListView">
+			<summary>
+				Gets the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListView"/> that this item is currently attached to.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.ParentItem">
+			<summary>
+				Gets the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> that this item is currently a child to.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.Depth">
+			<summary>
+				Gets one-based depth of this item.  Root nodes return a one (1), their children return a two(2), and so on.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.IsFiltered">
+			<summary>
+				Gets a value indicating whether this item is currently being filtered out.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.Focused">
+			<summary>
+				Gets or sets a value indicating whether this item has the focus.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.HasChildren">
+			<summary>
+				Gets a value indicating whether this item has children.  Use <see cref="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.ForceHasChildren"/> to hide children without having to remove them.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewItem.ForceHasChildren">
+			<summary>
+				Gets or sets a value to determine whether the control should acknowledge its children or not.
+			</summary>
+		</member>
+		<member name="T:RSTD.TreeIcons">
+			<summary>
+				A strongly-typed resource class, for looking up localized strings, etc.
+			</summary>
+		</member>
+		<member name="P:RSTD.TreeIcons.ResourceManager">
+			<summary>
+				Returns the cached ResourceManager instance used by this class.
+			</summary>
+		</member>
+		<member name="P:RSTD.TreeIcons.Culture">
+			<summary>
+				Overrides the current thread's CurrentUICulture property for all
+				resource lookups using this strongly typed resource class.
+			</summary>
+		</member>
+		<member name="P:RSTD.TreeIcons.clock">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+			</summary>
+		</member>
+		<member name="P:RSTD.TreeIcons.copy">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.TreeIcons.diskette">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.TreeIcons.find">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.TreeIcons.folder_close">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+			</summary>
+		</member>
+		<member name="P:RSTD.TreeIcons.folder_open">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+			</summary>
+		</member>
+		<member name="P:RSTD.TreeIcons.func_color">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+			</summary>
+		</member>
+		<member name="P:RSTD.TreeIcons.func_gray">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+			</summary>
+		</member>
+		<member name="P:RSTD.TreeIcons.func_run">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.TreeIcons.green_light">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.TreeIcons.help">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.TreeIcons.parameter">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+			</summary>
+		</member>
+		<member name="P:RSTD.TreeIcons.red_light">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.TreeIcons.refresh">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.TreeIcons.tx">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.TreeIcons.var_auto_updated">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+			</summary>
+		</member>
+		<member name="P:RSTD.TreeIcons.var_not_updated">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+			</summary>
+		</member>
+		<member name="P:RSTD.TreeIcons.var_updated">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+			</summary>
+		</member>
+		<member name="T:Rstd.Controls.ContainerListViews.Win32Constants">
+			<summary>
+				Summary description for Win32Constants.
+			</summary>
+		</member>
+		<member name="T:Rstd.Controls.ContainerListViews.Design.ContainerListViewDesigner">
+			<summary>
+				Extends design-time behavior for a <see cref="T:Rstd.Controls.ContainerListViews.ContainerListView"/> control.
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.Design.ContainerListViewDesigner.PostFilterProperties(System.Collections.IDictionary)">
+			<summary>
+				Removes the 'Text' property from being exposed.
+			</summary>
+			<param name="properties"></param>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.Design.ContainerListViewDesigner.AssociatedComponents">
+			<summary>
+				Gets the collection of components associated with the component managed by the designer.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.Design.ContainerListViewDesigner.Verbs">
+			<summary>
+				Gets the design-time verbs supported by the component that is associated with the designer.
+			</summary>
+		</member>
+		<member name="T:Rstd.Controls.ContainerListViews.ContainerListViewSubItemCollection">
+			<summary>
+				Implements a strongly typed collection of <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewSubItem"/> elements.
+			</summary>
+			<remarks>
+				<b>ContainerListViewSubItemCollection</b> provides an <see cref="T:System.Collections.ArrayList"/> that
+				is strongly typed for <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewSubItem"/> elements.
+			</remarks>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewSubItemCollection.Add(Rstd.Controls.ContainerListViews.ContainerListViewSubItem)">
+			<summary>
+				Adds an existing <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewSubItem"/> object to the collection.
+			</summary>
+			<param name="subItem">
+				The <b>ContainerListViewSubItem</b> object to add to the collection.
+			</param>
+			<returns>The position into which the new element was inserted.</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewSubItemCollection.Insert(System.Int32,Rstd.Controls.ContainerListViews.ContainerListViewSubItem)">
+			<summary>
+				Inserts an existing <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewSubItem"/> object to the collection at the specified index.
+			</summary>
+			<param name="index">The zero-based index location where the item is inserted.</param>
+			<param name="subItem">
+				The <b>ContainerListViewSubItem</b> object to add to the collection.
+			</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewSubItemCollection.Remove(Rstd.Controls.ContainerListViews.ContainerListViewSubItem)">
+			<summary>
+				Removes the specified <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> from the collection.
+			</summary>
+			<param name="subItem">
+				A <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewSubItem"/> to remove from the collection.
+			</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewSubItemCollection.RemoveAt(System.Int32)">
+			<summary>
+				Removes an item from the collection at the specified index.
+			</summary>
+			<param name="index">The zero-based index position of the item that is to be removed.</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewSubItemCollection.AddRange(Rstd.Controls.ContainerListViews.ContainerListViewSubItem[])">
+			<summary>
+				Adds an array of <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewSubItem"/> objects to the collection.
+			</summary>
+			<param name="subItems">
+				An array of <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewSubItem"/> objects to add to the collection.
+			</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewSubItemCollection.IndexOf(Rstd.Controls.ContainerListViews.ContainerListViewSubItem)">
+			<summary>
+				Returns the index within the collection of the specified sub item.
+			</summary>
+			<param name="item">
+				A <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewSubItem"/> representing the item to locate in the collection.
+			</param>
+			<returns>The zero-based index of the item's location in the collection.  If the item is not located in the collection the return value is negative one (-1).</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewSubItemCollection.Contains(Rstd.Controls.ContainerListViews.ContainerListViewSubItem)">
+			<summary>
+				Determines whether the specified item is located in the collection.
+			</summary>
+			<param name="item">
+				A <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewSubItem"/> representing the item to locate in the collection.
+			</param>
+			<returns>
+				<b>true</b> if the column is contained in the collection; otherwise, <b>false</b>.
+			</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewSubItemCollection.Clear">
+			<summary>
+				Removes all sub items from the collection.
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewSubItemCollection.CopyTo(Rstd.Controls.ContainerListViews.ContainerListViewSubItem[],System.Int32)">
+			<summary>
+				Makes a shallow copy of the entire <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewSubItemCollection"/> to a one-dimensional array, starting at the specified index of the target array.
+			</summary>
+			<param name="array">The one-dimensional array that is the destination of the elements.</param>
+			<param name="arrayIndex">
+				The zero-based index in <em>array</em> at which copying begins.
+			</param>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewSubItemCollection.Item(System.Int32)">
+			<summary>
+				Indicates the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewSubItem"/> at the specified indexed
+				location in the collection.  In C#, this property is the indexer for the
+				<b>ContainerListViewSubItemCollection</b> class.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewSubItemCollection.Count">
+			<summary>
+				Gets the number of <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewSubItem"/> elements in this collection.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewSubItemCollection.OwningItem">
+			<summary>
+				Gets the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> that this collection is attached to.
+			</summary>
+		</member>
+		<member name="T:Rstd.Controls.ContainerListViews.ContainerListViewSelectedItemCollection">
+			<summary>
+				Implements a strongly typed collection of <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> elements
+				that are currently selected in a <see cref="T:Rstd.Controls.ContainerListViews.ContainerListView"/>.
+			</summary>
+			<remarks>
+				<b>ContainerListViewSelectedItemCollection</b> provides an <see cref="T:System.Collections.ArrayList"/>
+				that is strongly typed for <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> elements. The items
+				always are maintained sorted by the item's position in the list.
+			</remarks>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewSelectedItemCollection.Add(Rstd.Controls.ContainerListViews.ContainerListViewItem)">
+			<summary>
+				Selects existing <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> object to the list.
+			</summary>
+			<param name="item">
+				The <b>ContainerListViewItem</b> object to select.
+			</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewSelectedItemCollection.Insert(System.Int32,Rstd.Controls.ContainerListViews.ContainerListViewItem)">
+			<summary>
+				Always throws <see cref="T:System.NotSupportedException"/>, use the Add method instead.
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewSelectedItemCollection.Remove(Rstd.Controls.ContainerListViews.ContainerListViewItem)">
+			<summary>
+				Removes a <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> object from the selected list.
+			</summary>
+			<param name="item">
+				The <b>ContainerListViewItem</b> object you want to remove from being selected.
+			</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewSelectedItemCollection.AddRange(Rstd.Controls.ContainerListViews.ContainerListViewItem[])">
+			<summary>
+				Adds an array of <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> objects to the selected item collection.
+			</summary>
+			<param name="items">
+				An array of <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> objects to add to the collection.
+			</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewSelectedItemCollection.IndexOf(Rstd.Controls.ContainerListViews.ContainerListViewItem)">
+			<summary>
+				Returns the index within the collection of the specified item.
+			</summary>
+			<param name="item">
+				A <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> representing the item to locate in the collection.
+			</param>
+			<returns>The zero-based index of the item's location in the collection.  If the item is not located in the collection the return value is negative one (-1).</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewSelectedItemCollection.Contains(Rstd.Controls.ContainerListViews.ContainerListViewItem)">
+			<summary>
+				Determines whether the specified item is located in the collection.
+			</summary>
+			<param name="item">
+				A <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> representing the item to locate in the collection.
+			</param>
+			<returns>
+				<b>true</b> if the column is contained in the collection; otherwise, <b>false</b>.
+			</returns>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewSelectedItemCollection.Clear">
+			<summary>
+				De-selects all the items.
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewSelectedItemCollection.CopyTo(Rstd.Controls.ContainerListViews.ContainerListViewItem[],System.Int32)">
+			<summary>
+				Copies the entire collection into an existing array at a specified location within the array.
+			</summary>
+			<param name="array">The destination array.</param>
+			<param name="arrayIndex">
+				The zero-based relative index in <em>array</em> at which copying begins.
+			</param>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewSelectedItemCollection.Item(System.Int32)">
+			<summary>
+				Indicates the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> at the specified indexed
+				location in the collection.  In C#, this property is the indexer for the
+				<b>ContainerListViewSelectedItemCollection</b> class.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewSelectedItemCollection.Count">
+			<summary>
+				Gets the number of <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewItem"/> elements in this collection.
+			</summary>
+		</member>
+		<member name="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader">
+			<summary>
+				Represents a single column header in a <see cref="T:Rstd.Controls.ContainerListViews.ContainerListView"/> control.
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.#ctor">
+			<summary>
+				Initializes a new instance of the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> class.
+			</summary>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.#ctor(System.String)">
+			<summary>
+				Initializes a new instance of the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> class with the specified text.
+			</summary>
+			<param name="text">The text to use in the column header.</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.#ctor(System.String,System.Int32)">
+			<summary>
+				Initializes a new instance of the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> class with the specified text and width.
+			</summary>
+			<param name="text">The text to use in the column header.</param>
+			<param name="width">The initial width of the colun header.</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.#ctor(System.String,System.Int32,System.Windows.Forms.HorizontalAlignment)">
+			<summary>
+				Initializes a new instance of the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> class with the specified properties.
+			</summary>
+			<param name="text">The text to use in the column header.</param>
+			<param name="width">The initial width of the colun header.</param>
+			<param name="horizontalAlign">The horizontal alignment of the column header content, will default vertical alignment to middle</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.#ctor(System.String,System.Int32,System.Drawing.ContentAlignment)">
+			<summary>
+				Initializes a new instance of the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> class with the specified properties.
+			</summary>
+			<param name="text">The text to use in the column header.</param>
+			<param name="width">The initial width of the colun header.</param>
+			<param name="contentAlign">The content alignment of the column header content</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.AutoSizeWidth(System.Boolean)">
+			<summary>
+				Will automatically size the width of the column to fit the text
+			</summary>
+			<param name="includeItemWidths">
+				If <b>true</b> will use the sizes the SubItems as well.  If <b>false</b> it will just use the text on the header.
+			</param>
+		</member>
+		<member name="M:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.Clone">
+			<summary>
+				Creates an identical copy of the current <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> that is not attached to a <see cref="T:Rstd.Controls.ContainerListViews.ContainerListView"/>.
+			</summary>
+			<returns>
+				An object representing a copy of this <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader"/> object.
+			</returns>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.Image">
+			<summary>
+				Gets or sets the <see cref="T:System.Drawing.Image"/> used to paint on the column header.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.ForeColor">
+			<summary>
+				Gets or sets the Color used to paint the column header text.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.Font">
+			<summary>
+				Gets or sets the Font used to paint the column header text.  If left null it will use the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListView"/>'s Font property.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.Text">
+			<summary>
+				Gets or sets the text of the column header.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.ContentAlign">
+			<summary>
+				Gets or sets the alignment of the content for the column header.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.ToolTip">
+			<summary>
+				Gets or sets the text of the tool tip for this column header.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.Width">
+			<summary>
+				Gets or sets the width of the column header.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.MinimumWidth">
+			<summary>
+				Gets or sets the minimum width a column is allowed to be.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.MaximumWidth">
+			<summary>
+				Gets or sets the maximum width a column is allowed to be.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.WidthBehavior">
+			<summary>
+				Gets or sets the behavior of the width when the list or other columns are resized.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.Visible">
+			<summary>
+				Gets or sets a value to indicate whether or not the column is being drawn actively or not.  Is not affected by the scrolling area.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.Tag">
+			<summary>
+				Gets or sets an object that contains data to associate with the Column.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.SortDataType">
+			<summary>
+				Gets or sets the data type used for comparisons when sorting this column.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.CustomSortTag">
+			<summary>
+				User defined object in which saving sorting stuff
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.DefaultSortOrder">
+			<summary>
+				Gets or sets the <see cref="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.SortOrder"/> that is used as the default when this column is first sorted.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.CustomSortComparer">
+			<summary>
+				Gets or sets the custom IComparer, SortDataType must be set to <b>Custom</b> for this to be used
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.ListView">
+			<summary>
+				Gets the <see cref="T:Rstd.Controls.ContainerListViews.ContainerListView"/> that this header is attached to.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.SortOrder">
+			<summary>
+				Gets the <see cref="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.SortOrder"/> that this column is current being sorted by.  If value is <b>SortOrder.None</b> then it currently isn't being sorted by.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.Index">
+			<summary>
+				Gets the index of this header in the containing <see cref="T:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeaderCollection"/>.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.DisplayIndex">
+			<summary>
+				Gets or sets the display index of this header.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.Hovered">
+			<summary>
+				Gets or sets the value indicating whether or not this column is currently being tracked.
+			</summary>
+		</member>
+		<member name="P:Rstd.Controls.ContainerListViews.ContainerListViewColumnHeader.Pressed">
+			<summary>
+				Gets or sets the value indicating whether or not this column is currently being pressed.
+			</summary>
+		</member>
+		<member name="T:RSTD.Properties.Resources">
+			<summary>
+				A strongly-typed resource class, for looking up localized strings, etc.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.ResourceManager">
+			<summary>
+				Returns the cached ResourceManager instance used by this class.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.Culture">
+			<summary>
+				Overrides the current thread's CurrentUICulture property for all
+				resource lookups using this strongly typed resource class.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.Abort">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.arrow_2_dots">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.arrow_down_8">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.bracket_curley_left">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.bracket_curley_right">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.BuildImage">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.camera">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.camera2">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.cancel">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.Circle_Red2">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.clear_list">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.color_palette_36">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.color_palette_gray_36">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.date">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.Debug">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.defaultImage">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.edit">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.edit_debug">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.folderTreeImage">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.GoImage">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.gotoImage">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.image_32">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.image_gray_32">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.luaImage">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.luaImageText">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.message_error">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.message_info">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.message_question">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.message_warning">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.MonitorVarsImage">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.ok">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.OutputImage">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.Radar_Studio">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.RadarLogo">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.record_button">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.ReggaeImage">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.RstdImage">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.save_to_file">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.SearchImage">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.settings_64">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.splash2">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.stop_button">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.tv_minus">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.tv_plus">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+		<member name="P:RSTD.Properties.Resources.WorksetImage">
+			<summary>
+				Looks up a localized resource of type System.Drawing.Bitmap.
+			</summary>
+		</member>
+	</members>
+</doc>

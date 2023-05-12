@@ -1,0 +1,654 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{6900DE9E-A802-48BE-89EB-B51D3A06F9D9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>mmWaveStudio</RootNamespace>
+    <AssemblyName>mmWaveStudio</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>mmWaveStudio.ico</ApplicationIcon>
+    <StartupObject>RSTD.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\RunTime\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LuaDebuggerIDE">
+      <HintPath>..\..\LuaDebuggerIDE.dll</HintPath>
+    </Reference>
+    <Reference Include="LuaInterface">
+      <HintPath>..\..\LuaInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="LuaRegister">
+      <HintPath>..\..\LuaRegister.dll</HintPath>
+    </Reference>
+    <Reference Include="RstdGuiClientBase">
+      <HintPath>..\..\RstdGuiClientBase.dll</HintPath>
+    </Reference>
+    <Reference Include="RstdNet">
+      <HintPath>..\..\RstdNet.dll</HintPath>
+    </Reference>
+    <Reference Include="RstdRemoting">
+      <HintPath>..\..\RstdRemoting.dll</HintPath>
+    </Reference>
+    <Reference Include="RstdXml">
+      <HintPath>..\..\RstdXml.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking">
+      <HintPath>..\..\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CheckedViewWindow.cs" />
+    <Compile Include="CurrentCheckedListBox.cs" />
+    <Compile Include="DockContents.cs" />
+    <Compile Include="PrivateImplementationDetails.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RSTD\BidirHashtable.cs" />
+    <Compile Include="RSTD\BrowseTree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\BrowseTree.Designer.cs">
+      <DependentUpon>BrowseTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\Client_Priority.cs" />
+    <Compile Include="RSTD\CommandEnteredEventArgs.cs" />
+    <Compile Include="RSTD\CommandHistory.cs" />
+    <Compile Include="RSTD\ConsoleMessageBoxDel.cs" />
+    <Compile Include="RSTD\ConsoleMessageDel.cs" />
+    <Compile Include="RSTD\ConsolePrintDel.cs" />
+    <Compile Include="RSTD\ConsolePrintLevel2Del.cs" />
+    <Compile Include="RSTD\ConsolePrintLevelDel.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\ColumnWidthBehavior.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\ContainerListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rstd\Controls\ContainerListViews\ContainerListViewCancelEventArgs.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\ContainerListViewCancelEventHandler.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\ContainerListViewColumnHeader.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rstd\Controls\ContainerListViews\ContainerListViewColumnHeaderCollection.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\ContainerListViewColumnHeaderConverter.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\ContainerListViewComparer.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\ContainerListViewEventArgs.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\ContainerListViewEventHandler.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\ContainerListViewItem.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\ContainerListViewItemCollection.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\ContainerListViewItemConverter.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\ContainerListViewItemFilter.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\ContainerListViewSelectedItemCollection.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\ContainerListViewSubItem.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\ContainerListViewSubItemCollection.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\ContainerListViewSubItemConverter.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\ContextMenuEventHandler.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\ControlResizeBehavior.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\Design\ContainerListViewDesigner.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\FilterStub.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\GridLines.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\HeaderMenuEventHandler.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\Helpers.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\IFilter.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\ItemMenuEventHandler.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\NullableBoolean.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\SortDataType.cs" />
+    <Compile Include="Rstd\Controls\ContainerListViews\Win32Constants.cs" />
+    <Compile Include="RSTD\CoreAsyncDel.cs" />
+    <Compile Include="RSTD\CoreAsyncDel_OperationTypeAndNodeList.cs" />
+    <Compile Include="RSTD\CoreAsyncDel_OperationTypeNodeListAndSubSet.cs" />
+    <Compile Include="RSTD\CoreAsyncDel_string_bool.cs" />
+    <Compile Include="RSTD\CoreImports.cs" />
+    <Compile Include="RSTD\CoreImportsCheck.cs" />
+    <Compile Include="RSTD\CSocketPacket.cs" />
+    <Compile Include="RSTD\Delegates.cs" />
+    <Compile Include="RSTD\DialogType.cs" />
+    <Compile Include="RSTD\DisplayType.cs" />
+    <Compile Include="RSTD\EBuildStatus.cs" />
+    <Compile Include="RSTD\FileType.cs" />
+    <Compile Include="RSTD\FindFormListItem.cs" />
+    <Compile Include="RSTD\FolderBrowseDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\FolderBrowseDialog.Designer.cs">
+      <DependentUpon>FolderBrowseDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\FolderContextMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RSTD\FolderIcon.cs" />
+    <Compile Include="RSTD\frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\frmFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\frmFilter.Designer.cs">
+      <DependentUpon>frmFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\frmFind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\frmFind.Designer.cs">
+      <DependentUpon>frmFind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\frmGoTo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\frmGoTo.Designer.cs">
+      <DependentUpon>frmGoTo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\frmGuiSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\frmGuiSettings.Designer.cs">
+      <DependentUpon>frmGuiSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\frmHandleMsg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\frmHandleMsg.Designer.cs">
+      <DependentUpon>frmHandleMsg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\frmInteractiveMsgBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\frmInteractiveMsgBox.Designer.cs">
+      <DependentUpon>frmInteractiveMsgBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\frmLuaRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\frmLuaRegister.Designer.cs">
+      <DependentUpon>frmLuaRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\frmLuaShell.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\frmLuaShell.Designer.cs">
+      <DependentUpon>frmLuaShell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\frmMaxLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\frmMaxLog.Designer.cs">
+      <DependentUpon>frmMaxLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\frmMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\frmMessage.Designer.cs">
+      <DependentUpon>frmMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\frmOutput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\frmOutput.Designer.cs">
+      <DependentUpon>frmOutput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\frmQuickHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\frmQuickHelp.Designer.cs">
+      <DependentUpon>frmQuickHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\frmRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\frmRecord.Designer.cs">
+      <DependentUpon>frmRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\frmSubSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\frmSubSet.Designer.cs">
+      <DependentUpon>frmSubSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\frmToolBarInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\frmToolBarInfo.Designer.cs">
+      <DependentUpon>frmToolBarInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\frmUpdateArrayDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\frmUpdateArrayDialog.Designer.cs">
+      <DependentUpon>frmUpdateArrayDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\frmUserButtonConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\frmUserButtonConfig.Designer.cs">
+      <DependentUpon>frmUserButtonConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\frmWorkSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\frmWorkSet.Designer.cs">
+      <DependentUpon>frmWorkSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\frmYesNoTimerMsgBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\frmYesNoTimerMsgBox.Designer.cs">
+      <DependentUpon>frmYesNoTimerMsgBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\FullPrecision.cs" />
+    <Compile Include="RSTD\FunctionContextMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RSTD\FunctionFindContextMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RSTD\GuiCore.cs" />
+    <Compile Include="RSTD\GUI_REGISTER_UPDATED_MODE.cs" />
+    <Compile Include="RSTD\HwCsvHeader.cs" />
+    <Compile Include="RSTD\IniHandler.cs" />
+    <Compile Include="RSTD\JumpToPathDel.cs" />
+    <Compile Include="RSTD\LifeSignsParams.cs" />
+    <Compile Include="RSTD\LuaExportedOperations.cs" />
+    <Compile Include="RSTD\LuaWrapperUtils.cs" />
+    <Compile Include="RSTD\MaxValue.cs" />
+    <Compile Include="RSTD\MonitorContextMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RSTD\MonitoredVars.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\MonitoredVars.Designer.cs">
+      <DependentUpon>MonitoredVars.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\MonitorSubItem.cs" />
+    <Compile Include="RSTD\NamedPipe.cs" />
+    <Compile Include="RSTD\NodeInfo.cs" />
+    <Compile Include="RSTD\NodeType.cs" />
+    <Compile Include="RSTD\OVERFLOW_MODE_T.cs" />
+    <Compile Include="RSTD\PassedVarData.cs" />
+    <Compile Include="RSTD\Program.cs" />
+    <Compile Include="RSTD\Properties\Resources.cs" />
+    <Compile Include="RSTD\Properties\Settings.cs" />
+    <Compile Include="RSTD\Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="RSTD\QUANTIZATION_MODE_T.cs" />
+    <Compile Include="RSTD\ReceiveTransmit_T.cs" />
+    <Compile Include="RSTD\RecordItem.cs" />
+    <Compile Include="RSTD\RefreshCurrentFolder.cs" />
+    <Compile Include="RSTD\RefreshGuiDel.cs" />
+    <Compile Include="RSTD\RemoteManager.cs" />
+    <Compile Include="RSTD\RstdConstants.cs" />
+    <Compile Include="RSTD\RstdException.cs" />
+    <Compile Include="RSTD\RstdGuiSettings.cs" />
+    <Compile Include="RSTD\RstdServer.cs" />
+    <Compile Include="RSTD\RstdSettings.cs" />
+    <Compile Include="RSTD\RstdXmlTreeWrapper.cs" />
+    <Compile Include="RSTD\ServerEventArgs.cs" />
+    <Compile Include="RSTD\ServerEventHandler.cs" />
+    <Compile Include="RSTD\ServerState.cs" />
+    <Compile Include="RSTD\SetCommentDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\SetCommentDialog.Designer.cs">
+      <DependentUpon>SetCommentDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\SettingsPaths.cs" />
+    <Compile Include="RSTD\SettingsType.cs" />
+    <Compile Include="RSTD\ShellTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RSTD\Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\Splash.Designer.cs">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\StandardButtonsSize.cs" />
+    <Compile Include="RSTD\TabTreePage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RSTD\TEXT_COLOR_LENGTH.cs" />
+    <Compile Include="RSTD\TEXT_COLOR_T.cs" />
+    <Compile Include="RSTD\TimerManager.cs" />
+    <Compile Include="RSTD\ToolBarBtnInfo.cs" />
+    <Compile Include="RSTD\ToolStripEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RSTD\TreeIcons.cs" />
+    <Compile Include="RSTD\TreeViewNode.cs" />
+    <Compile Include="RSTD\UnManagedConsolePrintDel.cs" />
+    <Compile Include="RSTD\UnManagedCoreMessageBoxDel.cs" />
+    <Compile Include="RSTD\UnManagedCoreMessageDel.cs" />
+    <Compile Include="RSTD\UpdateDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\UpdateDialog.Designer.cs">
+      <DependentUpon>UpdateDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\UpdateDialog_FixMode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\UpdateDialog_FixMode.Designer.cs">
+      <DependentUpon>UpdateDialog_FixMode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\UpdateDialog_FixMode_New.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\UpdateDialog_FixMode_New.Designer.cs">
+      <DependentUpon>UpdateDialog_FixMode_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\UpdateMonitoredVarsDel.cs" />
+    <Compile Include="RSTD\UpdateMonitorVarsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSTD\UpdateMonitorVarsDialog.Designer.cs">
+      <DependentUpon>UpdateMonitorVarsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RSTD\UserButtonInfo.cs" />
+    <Compile Include="RSTD\UserToolStripInfo.cs" />
+    <Compile Include="RSTD\Utils.cs" />
+    <Compile Include="RSTD\VariableContextMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RSTD\VariableFindContextMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RSTD\VariableFormsContextMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RSTD\VarIcon.cs" />
+    <Compile Include="RSTD\WarningLevel.cs" />
+    <Compile Include="RSTD\WatchDogManager.cs" />
+    <Compile Include="TabContainColumns.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RSTD\BrowseTree.resx">
+      <DependentUpon>BrowseTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\Controls\ContainerListViews\ContainerListView.resx">
+      <DependentUpon>ContainerListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\Controls\ContainerListViews\ContainerListViewColumnHeader.resx">
+      <DependentUpon>ContainerListViewColumnHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\FolderBrowseDialog.resx">
+      <DependentUpon>FolderBrowseDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\frmFilter.resx">
+      <DependentUpon>frmFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\frmFind.resx">
+      <DependentUpon>frmFind.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\frmGoTo.resx">
+      <DependentUpon>frmGoTo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\frmGuiSettings.resx">
+      <DependentUpon>frmGuiSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\frmHandleMsg.resx">
+      <DependentUpon>frmHandleMsg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\frmInteractiveMsgBox.resx">
+      <DependentUpon>frmInteractiveMsgBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\frmLuaRegister.resx">
+      <DependentUpon>frmLuaRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\frmLuaShell.resx">
+      <DependentUpon>frmLuaShell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\frmMaxLog.resx">
+      <DependentUpon>frmMaxLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\frmMessage.resx">
+      <DependentUpon>frmMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\frmOutput.resx">
+      <DependentUpon>frmOutput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\frmQuickHelp.resx">
+      <DependentUpon>frmQuickHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\frmRecord.resx">
+      <DependentUpon>frmRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\frmSubSet.resx">
+      <DependentUpon>frmSubSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\frmToolBarInfo.resx">
+      <DependentUpon>frmToolBarInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\frmUpdateArrayDialog.resx">
+      <DependentUpon>frmUpdateArrayDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\frmUserButtonConfig.resx">
+      <DependentUpon>frmUserButtonConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\frmWorkSet.resx">
+      <DependentUpon>frmWorkSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\frmYesNoTimerMsgBox.resx">
+      <DependentUpon>frmYesNoTimerMsgBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\MonitoredVars.resx">
+      <DependentUpon>MonitoredVars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\Properties\Resources.resx">
+      <DependentUpon>Resources.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\SetCommentDialog.resx">
+      <DependentUpon>SetCommentDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\Splash.resx">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\TreeIcons.resx">
+      <DependentUpon>TreeIcons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\UpdateDialog.resx">
+      <DependentUpon>UpdateDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\UpdateDialog_FixMode.resx">
+      <DependentUpon>UpdateDialog_FixMode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\UpdateDialog_FixMode_New.resx">
+      <DependentUpon>UpdateDialog_FixMode_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSTD\UpdateMonitorVarsDialog.resx">
+      <DependentUpon>UpdateMonitorVarsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="app.manifest" />
+    <Content Include="DevExpress.Data.v9.3.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DevExpress.Utils.v9.3.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DevExpress.XtraEditors.v9.3.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DevExpress.XtraTreeList.v9.3.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LuaDebugger.dll.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="LuaScripts\convertions.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="LuaScripts\CsvHandler.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="LuaScripts\General.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="LuaScripts\LoadPackages.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="LuaScripts\LuaDebuggerHelper.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="LuaScripts\LuaFunctionsToDotNet.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="LuaScripts\RtttEx.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="LuaScripts\stringx.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="LuaScripts\utils.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="RSTD\Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="tiwlan.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="tiwlnapi.reg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DockCustDefault.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ftd2xx.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HAL.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HAL_WL.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HAL_WL_1273.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="INIFileConverter.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IsFPGA.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lua5.1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lua51.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LuaDebugger.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LuaDebuggerIDE.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LuaInterface.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LuaRegister.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RadarLinkDLL.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RegisteredDlls.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Rstddll.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RstdGuiClient.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Rttt.XML">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="rttt_core.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SciLexer.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

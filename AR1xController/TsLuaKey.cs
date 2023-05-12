@@ -1,0 +1,52 @@
+﻿using System;
+
+namespace AR1xController
+{
+	public enum TsLuaKey
+	{
+		ChannelName,
+		ChannelFreq,
+		ChannelIdx,
+		ChannelBand,
+		PowerMode,
+		GatingMode,
+		ConnectComPort,
+		ConnectBaudRate,
+		ConnectTimeout,
+		ConnectFwFile,
+		ConnectIniFile,
+		ConnectSetINvsFile,
+		ConnectDllFile,
+		ConnectPoll,
+		ConnectFrefClk,
+		TxMode,
+		TxRate,
+		TxPreamble,
+		TxBw,
+		TxPacketSize,
+		TxPacketAmount,
+		TxPacketDelay,
+		TxSgi,
+		f0002b7,
+		TxDualStream,
+		TxConstantData,
+		TxSourceMac,
+		TxDestMac,
+		f0002b8,
+		TxPower,
+		TxSocLimits,
+		TxFemLimits,
+		TxChannelLimits,
+		TxAnalogSettings,
+		TxAntenna,
+		f0002b9,
+		f0002ba,
+		f0002bb,
+		f0002bc,
+		RxMode,
+		RxIssueAck,
+		RxPhyModeCompVal,
+		RxPhyModeCompInc,
+		RxPollInterval
+	}
+}

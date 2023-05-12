@@ -1,0 +1,937 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F2F1B033-CF82-484B-B2BC-B3C0BC920FC4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>AR1xController</RootNamespace>
+    <AssemblyName>AR1xController</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\mmWaveStudio\bin\Clients\AR1xController\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>IDE1006</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>IDE1006</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GuiControls">
+      <HintPath>..\..\mmWaveStudio\Clients\AR1xController\GuiControls.dll</HintPath>
+    </Reference>
+    <Reference Include="LuaInterface">
+      <HintPath>..\..\mmWaveStudio\Clients\AR1xController\LuaInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="LuaRegister">
+      <HintPath>..\..\mmWaveStudio\Clients\AR1xController\LuaRegister.dll</HintPath>
+    </Reference>
+    <Reference Include="MatlabPostProcGui">
+      <HintPath>..\..\mmWaveStudio\Clients\AR1xController\MatlabPostProcGui.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MWArray">
+      <HintPath>..\..\mmWaveStudio\Clients\AR1xController\MWArray.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\mmWaveStudio\Clients\AR1xController\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking">
+      <HintPath>..\..\mmWaveStudio\Clients\AR1xController\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="WinSCPnet">
+      <HintPath>..\..\mmWaveStudio\Clients\AR1xController\WinSCPnet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AckFlag.cs" />
+    <Compile Include="ADCOutConfig.cs" />
+    <Compile Include="AdvanceBPMPattern.cs" />
+    <Compile Include="AdvanceBPMPatternConfigParams.cs" />
+    <Compile Include="AdvancedFrameConfigParams.cs" />
+    <Compile Include="AdvanceFrameConfigTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdvChirpConfigParams.cs" />
+    <Compile Include="AdvSubFrameConfigAndData.cs" />
+    <Compile Include="AnalogFaultInjectionConfigParameters.cs" />
+    <Compile Include="AnalogFaultInjectionConfiguration.cs" />
+    <Compile Include="AnalogFaultReport.cs" />
+    <Compile Include="AnalogMon2Config.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AnalogMonConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Antenna.cs" />
+    <Compile Include="AntennaMode.cs" />
+    <Compile Include="AntennaType.cs" />
+    <Compile Include="AntMode.cs" />
+    <Compile Include="ApiDirection.cs" />
+    <Compile Include="ApiRunner.cs" />
+    <Compile Include="AR1IniHandler.cs" />
+    <Compile Include="AR1xxxExtOpps.cs" />
+    <Compile Include="AR1xxxFunc.cs" />
+    <Compile Include="AR1xxxgui.cs" />
+    <Compile Include="AR1xxxWrapper.cs" />
+    <Compile Include="AssocF.cs" />
+    <Compile Include="AssocStr.cs" />
+    <Compile Include="asyncEventType.cs" />
+    <Compile Include="Band.cs" />
+    <Compile Include="BasicConfigurationForAnalysisParams.cs" />
+    <Compile Include="BaudRate.cs" />
+    <Compile Include="Bip.cs" />
+    <Compile Include="BoardFlavor.cs" />
+    <Compile Include="BoardInfo.cs" />
+    <Compile Include="BoardStatus.cs" />
+    <Compile Include="BoardType.cs" />
+    <Compile Include="BpmChirpConfigParams.cs" />
+    <Compile Include="BPMChirpManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BPMChirpManager.Designer.cs">
+      <DependentUpon>BPMChirpManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BpmConfigParams.cs" />
+    <Compile Include="BpmConfigTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BridgeType.cs" />
+    <Compile Include="c0000b1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="c000169.cs" />
+    <Compile Include="c0001d1.cs" />
+    <Compile Include="c0001d2.cs" />
+    <Compile Include="c0001d5.cs" />
+    <Compile Include="c0001d6.cs" />
+    <Compile Include="c0001d7.cs" />
+    <Compile Include="c0001d8.cs" />
+    <Compile Include="c0001de.cs" />
+    <Compile Include="c000213.cs" />
+    <Compile Include="c000214.cs" />
+    <Compile Include="c000215.cs" />
+    <Compile Include="c000218.cs" />
+    <Compile Include="c000219.cs" />
+    <Compile Include="c00021a.cs" />
+    <Compile Include="c000258.cs" />
+    <Compile Include="c000263.cs" />
+    <Compile Include="c00026d.cs" />
+    <Compile Include="CalibConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CalibDataReStore.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CalibDataRestoreConfigParams.cs" />
+    <Compile Include="CalibDataRestoreConfiguration.cs" />
+    <Compile Include="CalibDataRestoreConfiguration2.cs" />
+    <Compile Include="CalibDataRestoreConfiguration3.cs" />
+    <Compile Include="CalibDataRestoreConfigurationPtrHandler.cs" />
+    <Compile Include="CalibDataRestoreSaveConfigParams.cs" />
+    <Compile Include="CalibDataSaveReport.cs" />
+    <Compile Include="Calibrations.cs" />
+    <Compile Include="CalibrationsList.cs" />
+    <Compile Include="CalMonFreqTxPowerLimitConfiguration.cs" />
+    <Compile Include="CalMonFrequencyTxPowerLimitConfigParameters.cs" />
+    <Compile Include="CapturedFiles.cs" />
+    <Compile Include="ChannelData.cs" />
+    <Compile Include="ChannelTable.cs" />
+    <Compile Include="ChirpConfigParams.cs" />
+    <Compile Include="ChirpConfigTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChirpData.cs" />
+    <Compile Include="ChirpManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChirpManager.Designer.cs">
+      <DependentUpon>ChirpManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChirpParams.cs" />
+    <Compile Include="ChirpPhaseShifterConfigParams.cs" />
+    <Compile Include="ClalibDataRestoreSaveConfiguration.cs" />
+    <Compile Include="ClibTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ClockOutConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ConfigGenerator.cs" />
+    <Compile Include="ConfigurationManager.cs" />
+    <Compile Include="Connection.cs" />
+    <Compile Include="ConnectParams.cs" />
+    <Compile Include="ConnectTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Constants.cs" />
+    <Compile Include="ContStreamConfiguration.cs" />
+    <Compile Include="ContStreamingTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ContStreamParams.cs" />
+    <Compile Include="CRCFlag.cs" />
+    <Compile Include="CRCLen.cs" />
+    <Compile Include="CurrentVersion.cs" />
+    <Compile Include="DataConfigParams.cs" />
+    <Compile Include="DataConfigTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DCA1000Config.cs" />
+    <Compile Include="DCCMonAsyncReport.cs" />
+    <Compile Include="Delegates.cs" />
+    <Compile Include="DetectionChain.cs" />
+    <Compile Include="DFPVersion.cs" />
+    <Compile Include="DFPVersion2.cs" />
+    <Compile Include="DllOps.cs" />
+    <Compile Include="DualClockCompMonitoringConfiguration.cs" />
+    <Compile Include="DynamicChirpCfgHandler.cs" />
+    <Compile Include="DynamicChirpConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DynamicChirpConfigParams.cs" />
+    <Compile Include="DynamicChirpConfiguration.cs" />
+    <Compile Include="DynamicChirpEnableConfigParams.cs" />
+    <Compile Include="DynamicChirpEnableConfiguration.cs" />
+    <Compile Include="DynamicPerChirpPhaseShiftConfigParams.cs" />
+    <Compile Include="DynamicPerChirpPhaseShifterCfgHandler.cs" />
+    <Compile Include="DynamicPerChirpPhaseShifterConfiguration.cs" />
+    <Compile Include="DynamicPowerSave.cs" />
+    <Compile Include="DynamicPowerSaveConfigParams.cs" />
+    <Compile Include="EnabledChain.cs" />
+    <Compile Include="EthernetInitConfigParams.cs" />
+    <Compile Include="ethernetInitConfiguration.cs" />
+    <Compile Include="EthernetModeConfigParams.cs" />
+    <Compile Include="ExtAnalogSigMonAsyncReport.cs" />
+    <Compile Include="ExtAnalogSigMonConfiguration.cs" />
+    <Compile Include="ExternalFilterCoeffRAMConfigParams.cs" />
+    <Compile Include="ExternalFilterProgConfigParams.cs" />
+    <Compile Include="ExternalFilterProgramming.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExternalProramFilter.cs" />
+    <Compile Include="Files.cs" />
+    <Compile Include="Fmt.cs" />
+    <Compile Include="FrameData.2.cs" />
+    <Compile Include="FrameData.cs" />
+    <Compile Include="FrameSeq.cs" />
+    <Compile Include="FrefClock.cs" />
+    <Compile Include="FreqLimitConfiguration.cs" />
+    <Compile Include="frmAR1Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAR1Main.Designer.cs">
+      <DependentUpon>frmAR1Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProgressBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProgressBar.Designer.cs">
+      <DependentUpon>frmProgressBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GetPMICRegConfigParams.cs" />
+    <Compile Include="GlobalRef.cs" />
+    <Compile Include="GPADCDataMeasByExternally.cs" />
+    <Compile Include="GuiManager.cs" />
+    <Compile Include="GuiOp.cs" />
+    <Compile Include="GuiSettings.cs" />
+    <Compile Include="GUI\delegate026b.cs" />
+    <Compile Include="GUI\WinSCPTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\WinSCPTransfer.Designer.cs">
+      <DependentUpon>WinSCPTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Imports.cs" />
+    <Compile Include="Import_Export.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IniField.cs" />
+    <Compile Include="IniHandler.cs" />
+    <Compile Include="InterChirpBlockControls.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterChirpBlockControlsConfigParams.cs" />
+    <Compile Include="InterChirpBlockControlsConfiguration.cs" />
+    <Compile Include="InterRxCGainPhaseFreqControlonfiguration.cs" />
+    <Compile Include="InterRxGainPhaseFreqControlConfigParameters.cs" />
+    <Compile Include="IntGPADCAnalogSigMonAsyncReport.cs" />
+    <Compile Include="IntGPADCAnalogSigMonConfiguration.cs" />
+    <Compile Include="IntPMCLKLOAnalogSigMonAsyncReport.cs" />
+    <Compile Include="IntPMCLKLOAnalogSigMonConfiguration.cs" />
+    <Compile Include="IntRxAnalogSigMonAsyncReport.cs" />
+    <Compile Include="IntRxAnalogSigMonConfiguration.cs" />
+    <Compile Include="IntTx1AnalogSigMonAsyncReport.cs" />
+    <Compile Include="IntTx1AnalogSigMonConfiguration.cs" />
+    <Compile Include="IntTx2AnalogSigMonAsyncReport.cs" />
+    <Compile Include="IntTx2AnalogSigMonConfiguration.cs" />
+    <Compile Include="IntTx3AnalogSigMonAsyncReport.cs" />
+    <Compile Include="IntTx3AnalogSigMonConfiguration.cs" />
+    <Compile Include="JsonCfgVersion.cs" />
+    <Compile Include="LastBackwardCompatibleVersion.cs" />
+    <Compile Include="LoopBack.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LoopBackBurstConfigParams.cs" />
+    <Compile Include="LoopBackBurstConfiguration.cs" />
+    <Compile Include="LowPowerModeConfiguration.cs" />
+    <Compile Include="LpModConfParams.cs" />
+    <Compile Include="LuaType.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="MainParams.cs" />
+    <Compile Include="MCUClockOutConfigParams.cs" />
+    <Compile Include="MCUClockOutConfiguration.cs" />
+    <Compile Include="MeasurePDPower.cs" />
+    <Compile Include="MeasurePDPowerConfigParams.cs" />
+    <Compile Include="MeasureTxPower.cs" />
+    <Compile Include="MeasureTxPowerConfiguration.cs" />
+    <Compile Include="MeasureTxPowerParams.cs" />
+    <Compile Include="MmWaveDevice.cs" />
+    <Compile Include="MmWaveDeviceConfig.cs" />
+    <Compile Include="MmwavelinkVersion.cs" />
+    <Compile Include="MmwavelinkVersion2.cs" />
+    <Compile Include="Mode.cs" />
+    <Compile Include="MonDualClockCompConfigParameters.cs" />
+    <Compile Include="MonExternalAnalogSignalConfigParameters.cs" />
+    <Compile Include="MonHeaderReportAsyncData.cs" />
+    <Compile Include="MonInternalGPADCAnalogSignalConfigParameters.cs" />
+    <Compile Include="MonInternalPMCLKLOAnalogSignalConfigParameters.cs" />
+    <Compile Include="MonInternalRxAnalogSignalConfigParameters.cs" />
+    <Compile Include="MonInternalTx1AnalogSignalConfigParameters.cs" />
+    <Compile Include="MonInternalTx2AnalogSignalConfigParameters.cs" />
+    <Compile Include="MonInternalTx3AnalogSignalConfigParameters.cs" />
+    <Compile Include="MonitoringConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MonitoringConfig1.cs" />
+    <Compile Include="MonitoringModeConfigParameters.cs" />
+    <Compile Include="MonitoringModeConfiguration.cs" />
+    <Compile Include="MonitoringRFEnablesConfiguration.cs" />
+    <Compile Include="MonPLLControlVoltageConfigParameters.cs" />
+    <Compile Include="MonRFEnablesConfigParameters.cs" />
+    <Compile Include="MonRXGainPhaseConfigParameters.cs" />
+    <Compile Include="MonRXIFStageConfigParameters.cs" />
+    <Compile Include="MonRxMixerInputPowerConfigParameters.cs" />
+    <Compile Include="MonRXNoiseFigureConfigParameters.cs" />
+    <Compile Include="MonRxSaturationDetectorConfigParameters.cs" />
+    <Compile Include="MonSignalAndImageConfigParameters.cs" />
+    <Compile Include="MonSynthFreqLinearityConfigParams.cs" />
+    <Compile Include="MonSynthFrequencyConfigParameters.cs" />
+    <Compile Include="MonTemperatureConfigParameters.cs" />
+    <Compile Include="MonTx1BallBreakConfigParameters.cs" />
+    <Compile Include="MonTx1BPMPhaseConfigParameters.cs" />
+    <Compile Include="MonTX1PowerConfigParameters.cs" />
+    <Compile Include="MonTx2BallBreakConfigParameters.cs" />
+    <Compile Include="MonTx2BPMPhaseConfigParameters.cs" />
+    <Compile Include="MonTX2PowerConfigParameters.cs" />
+    <Compile Include="MonTx3BallBreakConfigParameters.cs" />
+    <Compile Include="MonTx3BPMPhaseConfigParameters.cs" />
+    <Compile Include="MonTX3PowerConfigParameters.cs" />
+    <Compile Include="MonTxGainPhaseMismatchConfigParameters.cs" />
+    <Compile Include="MsgID.cs" />
+    <Compile Include="MsgType.cs" />
+    <Compile Include="MSSBootErrorStatusReport.cs" />
+    <Compile Include="MSSDataBlockConfig.cs" />
+    <Compile Include="MSSFwVersion.cs" />
+    <Compile Include="MSSGetDataBlockConfigParams.cs" />
+    <Compile Include="MSSGetDataBlockStatusReport.cs" />
+    <Compile Include="MSSLatentFaultConfiguration.cs" />
+    <Compile Include="MSSLatentFaultMonReport.cs" />
+    <Compile Include="MSSLatentFaultTestConfigParameters.cs" />
+    <Compile Include="MSSMonitoring.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MSSPeriodicTestConfigParameters.cs" />
+    <Compile Include="MSSPeriodicTestConfiguration.cs" />
+    <Compile Include="MSSPeriodicTestMonReport.cs" />
+    <Compile Include="MSSPowerUpDoneAsyncReport.cs" />
+    <Compile Include="MSSVolMonErrorStatusReport.cs" />
+    <Compile Include="NameValue.cs" />
+    <Compile Include="NameValueList.cs" />
+    <Compile Include="NativeImports.cs" />
+    <Compile Include="PDPowerConfig.cs" />
+    <Compile Include="PerChirpManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PerChirpManager.Designer.cs">
+      <DependentUpon>PerChirpManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PerChirpPhaseShifterConfigParams.cs" />
+    <Compile Include="PerChirpPhaseShifterEnable.cs" />
+    <Compile Include="PhaseShiftAndCalibFilePathParams.cs" />
+    <Compile Include="PhaseShifterClalibGetConfig.cs" />
+    <Compile Include="PhaseShifterClalibSetConfig.cs" />
+    <Compile Include="PLLControlVolMonitoringConfiguration.cs" />
+    <Compile Include="PLLControlVoltageAsyncReport.cs" />
+    <Compile Include="PMICClockOutConfigParams.cs" />
+    <Compile Include="PMICClockOutConfiguration.cs" />
+    <Compile Include="PMICTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PMICVoltageConfigParams.cs" />
+    <Compile Include="PowerMode.cs" />
+    <Compile Include="Preamble.cs" />
+    <Compile Include="ProcessedFileSummary.cs" />
+    <Compile Include="ProcessingChainConfig.cs" />
+    <Compile Include="ProcessType.cs" />
+    <Compile Include="ProfileConfiguration.cs" />
+    <Compile Include="ProfileData.cs" />
+    <Compile Include="ProfManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfManager.Designer.cs">
+      <DependentUpon>ProfManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProfParams.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ProtocolConfigParams.cs" />
+    <Compile Include="ProtocolTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProtVersion.cs" />
+    <Compile Include="RadarApiSeq.cs" />
+    <Compile Include="RadarDevice1DFEStaticReportDataConfigParams.cs" />
+    <Compile Include="RadarDevice2DFEStaticReportDataConfigParams.cs" />
+    <Compile Include="RadarDevice3DFEStaticReportDataConfigParams.cs" />
+    <Compile Include="RadarDevice4DFEStaticReportDataConfigParams.cs" />
+    <Compile Include="RadarDeviceModeConfigParams.cs" />
+    <Compile Include="RadarParams.cs" />
+    <Compile Include="RampTimingCfgTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RampTimingConfigParams.cs" />
+    <Compile Include="RateData.cs" />
+    <Compile Include="RateGroup.cs" />
+    <Compile Include="RateId.cs" />
+    <Compile Include="RateList.cs" />
+    <Compile Include="RawDataCaptureConfig.cs" />
+    <Compile Include="RecordApiOp.cs" />
+    <Compile Include="RecordDataPacketDelayConfigParams.cs" />
+    <Compile Include="RegOpeTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RegType.cs" />
+    <Compile Include="RegulatoryRestrictions.cs" />
+    <Compile Include="RetryFlag.cs" />
+    <Compile Include="RFCalibEnaDisConfigParams.cs" />
+    <Compile Include="RFCalibFrequencyLimitConfigParameters.cs" />
+    <Compile Include="RFCalibMon.cs" />
+    <Compile Include="RFCalibMonConfigParams.cs" />
+    <Compile Include="RFCharReport.cs" />
+    <Compile Include="RFCharReportConfigParams.cs" />
+    <Compile Include="RfConfig.cs" />
+    <Compile Include="RFDataCaptureCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RFDataCaptureCard.Designer.cs">
+      <DependentUpon>RFDataCaptureCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RFDCCardModeConfiguration.cs" />
+    <Compile Include="RFDeviceAEControlConfigParameters.cs" />
+    <Compile Include="RFDeviceAEDirectionControl.cs" />
+    <Compile Include="RFDigitalLatentFaultAsyncReport.cs" />
+    <Compile Include="RFDigitalPeriodicAsyncReport.cs" />
+    <Compile Include="RFDigitalSysLatentFaultConfigParameters.cs" />
+    <Compile Include="RFDigitalSysPeriodicConfigParameters.cs" />
+    <Compile Include="RFDigSysLatentFaultConfigParameters.cs" />
+    <Compile Include="RFDigSysPeriodicConfigParameters.cs" />
+    <Compile Include="RFDynamic.cs" />
+    <Compile Include="RfDynamicCharData.cs" />
+    <Compile Include="RfGPADCMeasureForExtInputConfigParams.cs" />
+    <Compile Include="RFIFLoopBack.cs" />
+    <Compile Include="RFIFLoopBackConfigParams.cs" />
+    <Compile Include="RFInitCalibConfigParameters.cs" />
+    <Compile Include="RFInitCalibConfiguration.cs" />
+    <Compile Include="RFInitStatus.cs" />
+    <Compile Include="RFLDOBypassEnableAndDisableConfigParameters.cs" />
+    <Compile Include="RFMiscConfigParams.cs" />
+    <Compile Include="RFPALoopBack.cs" />
+    <Compile Include="RFPALoopBackConfigParams.cs" />
+    <Compile Include="RFPhaseShifter.cs" />
+    <Compile Include="RFPSLoopBack.cs" />
+    <Compile Include="RFPSLoopBackConfigParams.cs" />
+    <Compile Include="RfStaticCharDataConfigParams.cs" />
+    <Compile Include="RFStatusConfigParams.cs" />
+    <Compile Include="RFStatusTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RlAdcOutCfgT.cs" />
+    <Compile Include="RlAdvChirpCfgT.cs" />
+    <Compile Include="RlAdvFrameCfgT.cs" />
+    <Compile Include="RlAllTxBallBreakMonCfgT.cs" />
+    <Compile Include="RlAllTxBpmMonConfT.cs" />
+    <Compile Include="RlAllTxIntAnaSignalsMonConfT.cs" />
+    <Compile Include="RlAllTxPowMonConfT.cs" />
+    <Compile Include="RlAnaFaultInjT.cs" />
+    <Compile Include="RlBpmKCounterSelT.cs" />
+    <Compile Include="RlChanCfgT.cs" />
+    <Compile Include="RlChirpCfgT.cs" />
+    <Compile Include="RlChirpPhShiftPerTxs.cs" />
+    <Compile Include="RlChirpPhShiftPerTxT.cs" />
+    <Compile Include="RlChirpRows.cs" />
+    <Compile Include="RlChirpRowT.cs" />
+    <Compile Include="RlChirps.cs" />
+    <Compile Include="RlContModeCfgT.cs" />
+    <Compile Include="RlContModeEnT.cs" />
+    <Compile Include="RlDevCsi2CfgT.cs" />
+    <Compile Include="RlDevDataFmtCfgT.cs" />
+    <Compile Include="RlDevDataPathCfgT.cs" />
+    <Compile Include="RlDevDataPathClkCfgT.cs" />
+    <Compile Include="RlDevLaneEnableT.cs" />
+    <Compile Include="RlDevLvdsLaneCfgT.cs" />
+    <Compile Include="RlDevMiscCfgT.cs" />
+    <Compile Include="RlDigMonPeriodicConfT.cs" />
+    <Compile Include="RlDualClkCompMonConfT.cs" />
+    <Compile Include="RlDynChirpCfgs.cs" />
+    <Compile Include="RlDynChirpCfgT.cs" />
+    <Compile Include="RlDynPerChirpPhShftCfgs.cs" />
+    <Compile Include="RlDynPerChirpPhShftCfgT.cs" />
+    <Compile Include="RlDynPwrSaveT.cs" />
+    <Compile Include="RlExtAnaSignalsMonConfT.cs" />
+    <Compile Include="RlFrameCfgT.cs" />
+    <Compile Include="RlGpadcIntAnaSignalsMonConfT.cs" />
+    <Compile Include="RlGpAdcSamples.cs" />
+    <Compile Include="RlGpAdcSamplesT.cs" />
+    <Compile Include="RlInterChirpBlkCtrlCfgT.cs" />
+    <Compile Include="RlInterRxGainPhConf.cs" />
+    <Compile Include="RllatentFaultT.cs" />
+    <Compile Include="RlLoopbackBursts.cs" />
+    <Compile Include="RlLoopbackBurstT.cs" />
+    <Compile Include="RlLowPowerModeCfgT.cs" />
+    <Compile Include="RlMonAnaEnablesT.cs" />
+    <Compile Include="RlMonDigEnablesT.cs" />
+    <Compile Include="RlperiodicTestT.cs" />
+    <Compile Include="RlPllContrVoltMonConfT.cs" />
+    <Compile Include="RlPmClkLoIntAnaSignalsMonConfT.cs" />
+    <Compile Include="RlProfileCfgT.cs" />
+    <Compile Include="RlProfiles.cs" />
+    <Compile Include="RlRfCalMonFreqLimitConfT.cs" />
+    <Compile Include="RlRfCalMonTimeUntConfT.cs" />
+    <Compile Include="RlRfIFLoopbackCfgT.cs" />
+    <Compile Include="RlRfInitCalConfT.cs" />
+    <Compile Include="RlRfLdoBypassCfgT.cs" />
+    <Compile Include="RlRfMiscConfT.cs" />
+    <Compile Include="RlRfPALoopbackCfgT.cs" />
+    <Compile Include="RlRfPhaseShiftCfgT.cs" />
+    <Compile Include="RlRfPhaseShiftCfgT2.cs" />
+    <Compile Include="RlRfProgFiltCoeffT.cs" />
+    <Compile Include="RlRfProgFiltConfT.cs" />
+    <Compile Include="RlRfProgFiltConfT2.cs" />
+    <Compile Include="RlRfPSLoopbackCfgT.cs" />
+    <Compile Include="RlRfTxFreqPwrLimitMonConfT.cs" />
+    <Compile Include="RlRunTimeCalibConfT.cs" />
+    <Compile Include="RlRxGainPhaseMonConfT.cs" />
+    <Compile Include="RlRxIfStageMonConfT.cs" />
+    <Compile Include="RlRxIntAnaSignalsMonConfT.cs" />
+    <Compile Include="RlRxMixInPwrMonConfT.cs" />
+    <Compile Include="RlRxNoiseMonConfT.cs" />
+    <Compile Include="RlRxSatMonConfT.cs" />
+    <Compile Include="RlSigImgMonConfT.cs" />
+    <Compile Include="RlSubFrameCfgT.cs" />
+    <Compile Include="RlSubFrameDataCfgT.cs" />
+    <Compile Include="RlSubFrameStartCfg.cs" />
+    <Compile Include="RlSynthFreqMonConfT.cs" />
+    <Compile Include="RlTempMonConfT.cs" />
+    <Compile Include="RltestPatternT.cs" />
+    <Compile Include="RlTestSourceAntPosT.cs" />
+    <Compile Include="RlTestSourceAntPosT2.cs" />
+    <Compile Include="RlTestSourceEnableT.cs" />
+    <Compile Include="RlTestSourceObjects.cs" />
+    <Compile Include="RlTestSourceObjectT.cs" />
+    <Compile Include="RlTestSourceRxAntPos.cs" />
+    <Compile Include="RlTestSourceT.cs" />
+    <Compile Include="RlTestSourceTxAntPos.cs" />
+    <Compile Include="RlTxGainPhaseMismatchMonConfT.cs" />
+    <Compile Include="RootObject.cs" />
+    <Compile Include="RunTimeCalib.cs" />
+    <Compile Include="RunTimeCalibConfigParameters.cs" />
+    <Compile Include="RunTimeCalibConfiguration.cs" />
+    <Compile Include="Rx.cs" />
+    <Compile Include="RxGainPhaseAsyncData.cs" />
+    <Compile Include="RxGainPhaseMonitoringConfiguration.cs" />
+    <Compile Include="RxGainTempLUTConfigParameters.cs" />
+    <Compile Include="RxGainTempLutConfiguration.cs" />
+    <Compile Include="RxGainTempLUTGetConfigParameters.cs" />
+    <Compile Include="RxGainTempLutGetConfiguration.cs" />
+    <Compile Include="RxGainTempLutReportData.cs" />
+    <Compile Include="RxIFStageAsyncData.cs" />
+    <Compile Include="RxIFStageMonitoringConfiguration.cs" />
+    <Compile Include="RxMixerInputPowerMonAsyncReport.cs" />
+    <Compile Include="RXMixerInputPowerMonitoringConfiguration.cs" />
+    <Compile Include="RxNoiseFigureAsyncData.cs" />
+    <Compile Include="RXNoiserMonitoringConfiguration.cs" />
+    <Compile Include="RxParams.cs" />
+    <Compile Include="RxSaturationDetectorMonitoringConfiguration.cs" />
+    <Compile Include="RxSaturationDetedtorAsyncReport.cs" />
+    <Compile Include="SceneParameters.cs" />
+    <Compile Include="ScriptOps.cs" />
+    <Compile Include="SDKVersion.cs" />
+    <Compile Include="SDKVersion2.cs" />
+    <Compile Include="SerialPortWrapper.cs" />
+    <Compile Include="SetOutputPowerExtStart_Api.cs" />
+    <Compile Include="SetPMICRegConfigParams.cs" />
+    <Compile Include="SetupObject.cs" />
+    <Compile Include="SiganlAnImageMonitoringConfiguration.cs" />
+    <Compile Include="SPIConnectParams.cs" />
+    <Compile Include="StaticConfigTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StaticConfSb.cs" />
+    <Compile Include="StaticParams.cs" />
+    <Compile Include="struct015.cs" />
+    <Compile Include="struct016.cs" />
+    <Compile Include="struct018.cs" />
+    <Compile Include="struct034.cs" />
+    <Compile Include="struct03d.cs" />
+    <Compile Include="struct06.cs" />
+    <Compile Include="struct06b.cs" />
+    <Compile Include="struct07.cs" />
+    <Compile Include="struct08.cs" />
+    <Compile Include="struct084.cs" />
+    <Compile Include="struct0b.cs" />
+    <Compile Include="struct0d.cs" />
+    <Compile Include="struct0e.cs" />
+    <Compile Include="SubFrameCfg.cs" />
+    <Compile Include="SubframeDataCfg.cs" />
+    <Compile Include="SWSubFrameStartStopConfigParams.cs" />
+    <Compile Include="SWSubFrameStartStopConfiguration.cs" />
+    <Compile Include="SynthFreqLinearityConfigData.cs" />
+    <Compile Include="SynthFreqMonitoringConfiguration.cs" />
+    <Compile Include="SynthFrequencyMonAsyncReport.cs" />
+    <Compile Include="SystemConfig.cs" />
+    <Compile Include="TDAEthernetInitConfigParams.cs" />
+    <Compile Include="TDAethernetInitConfiguration.cs" />
+    <Compile Include="TDAxxCaptureCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TDAxxCaptureCard.Designer.cs">
+      <DependentUpon>TDAxxCaptureCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TemperatrueSensorTempDataConfigParams.cs" />
+    <Compile Include="TemperatureMonAsyncReport.cs" />
+    <Compile Include="TemperatureMonConfiguration.cs" />
+    <Compile Include="TempSensorData.cs" />
+    <Compile Include="TestPatternGenConfigParams.cs" />
+    <Compile Include="TestPatternGenConfiguration.cs" />
+    <Compile Include="TestPortLine.cs" />
+    <Compile Include="TestSourceParams.cs" />
+    <Compile Include="TestSourceTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TimeUnitConfigParameters.cs" />
+    <Compile Include="TimeUnitConfiguration.cs" />
+    <Compile Include="TimeUnitReport.cs" />
+    <Compile Include="TsApiOp.cs" />
+    <Compile Include="TsLuaKey.cs" />
+    <Compile Include="TsParams.cs" />
+    <Compile Include="Tx.cs" />
+    <Compile Include="Tx0IntAnaSgnlMonCfg.cs" />
+    <Compile Include="Tx0PowrMonCfg.cs" />
+    <Compile Include="Tx1BallBreakAsyncData.cs" />
+    <Compile Include="TX1BallBreakMonitoringConfiguration.cs" />
+    <Compile Include="Tx1BPMPhaseAsyncFormat.cs" />
+    <Compile Include="Tx1BPMPhaseMonitoringConfiguration.cs" />
+    <Compile Include="Tx1IntAnaSgnlMonCfg.cs" />
+    <Compile Include="Tx1PowerMonAsyncData.cs" />
+    <Compile Include="Tx1PowrMonCfg.cs" />
+    <Compile Include="Tx1Tx2Tx3BallBreakMonitoringConfiguration.cs" />
+    <Compile Include="Tx1Tx2Tx3BPMPhaseMonitoringConfiguration.cs" />
+    <Compile Include="Tx1Tx2Tx3IntAnalogSigMonitoringConfiguration.cs" />
+    <Compile Include="Tx1Tx2Tx3PowerMonitoringConfiguration1.cs" />
+    <Compile Include="Tx1Tx2Tx3PowerMonitoringConfiguration2.cs" />
+    <Compile Include="Tx1Tx2Tx3PowerMonitoringConfiguration2New.cs" />
+    <Compile Include="Tx1Tx2Tx3PowerMonitoringConfiguration3.cs" />
+    <Compile Include="Tx2BallBreakAsyncData.cs" />
+    <Compile Include="TX2BallBreakMonitoringConfiguration.cs" />
+    <Compile Include="Tx2BPMPhaseAsyncFormat.cs" />
+    <Compile Include="Tx2BPMPhaseMonitoringConfiguration.cs" />
+    <Compile Include="Tx2IntAnaSgnlMonCfg.cs" />
+    <Compile Include="Tx2PowerMonAsyncData.cs" />
+    <Compile Include="Tx2PowrMonCfg.cs" />
+    <Compile Include="Tx3BallBreakAsyncData.cs" />
+    <Compile Include="TX3BallBreakMonitoringConfiguration.cs" />
+    <Compile Include="Tx3BPMPhaseAsyncFormat.cs" />
+    <Compile Include="Tx3BPMPhaseMonitoringConfiguration.cs" />
+    <Compile Include="Tx3PowerMonAsyncData.cs" />
+    <Compile Include="TxGainPhaseMismatchAsyncReport.cs" />
+    <Compile Include="TxGainPhaseMismatchMonitoringConfiguration.cs" />
+    <Compile Include="TxGainTempLUTConfigParameters.cs" />
+    <Compile Include="TxGainTempLutConfiguration.cs" />
+    <Compile Include="TxGainTempLUTGetConfigParameters.cs" />
+    <Compile Include="TxGainTempLutGetConfiguration.cs" />
+    <Compile Include="TxGainTempLutReportData.cs" />
+    <Compile Include="TxMode.cs" />
+    <Compile Include="TxParams.cs" />
+    <Compile Include="TxRxChannelConfig.cs" />
+    <Compile Include="TxRxGainTempLUTCfg.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AdvanceFrameConfigTab.resx">
+      <DependentUpon>AdvanceFrameConfigTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnalogMon2Config.resx">
+      <DependentUpon>AnalogMon2Config.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnalogMonConfig.resx">
+      <DependentUpon>AnalogMonConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BPMChirpManager.resx">
+      <DependentUpon>BPMChirpManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BpmConfigTab.resx">
+      <DependentUpon>BpmConfigTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="c0000b1.resx">
+      <DependentUpon>c0000b1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalibConfig.resx">
+      <DependentUpon>CalibConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalibDataReStore.resx">
+      <DependentUpon>CalibDataReStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChirpConfigTab.resx">
+      <DependentUpon>ChirpConfigTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChirpManager.resx">
+      <DependentUpon>ChirpManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClibTab.resx">
+      <DependentUpon>ClibTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClockOutConfig.resx">
+      <DependentUpon>ClockOutConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConnectTab.resx">
+      <DependentUpon>ConnectTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContStreamingTab.resx">
+      <DependentUpon>ContStreamingTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataConfigTab.resx">
+      <DependentUpon>DataConfigTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DynamicChirpConfig.resx">
+      <DependentUpon>DynamicChirpConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExternalFilterProgramming.resx">
+      <DependentUpon>ExternalFilterProgramming.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAR1Main.resx">
+      <DependentUpon>frmAR1Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProgressBar.resx">
+      <DependentUpon>frmProgressBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\WinSCPTransfer.resx">
+      <DependentUpon>WinSCPTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import_Export.resx">
+      <DependentUpon>Import_Export.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterChirpBlockControls.resx">
+      <DependentUpon>InterChirpBlockControls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoopBack.resx">
+      <DependentUpon>LoopBack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonitoringConfig.resx">
+      <DependentUpon>MonitoringConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MSSMonitoring.resx">
+      <DependentUpon>MSSMonitoring.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PerChirpManager.resx">
+      <DependentUpon>PerChirpManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PMICTab.resx">
+      <DependentUpon>PMICTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfManager.resx">
+      <DependentUpon>ProfManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <DependentUpon>Resources.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProtocolTab.resx">
+      <DependentUpon>ProtocolTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RampTimingCfgTab.resx">
+      <DependentUpon>RampTimingCfgTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegOpeTab.resx">
+      <DependentUpon>RegOpeTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RFDataCaptureCard.resx">
+      <DependentUpon>RFDataCaptureCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RFStatusTab.resx">
+      <DependentUpon>RFStatusTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaticConfigTab.resx">
+      <DependentUpon>StaticConfigTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TDAxxCaptureCard.resx">
+      <DependentUpon>TDAxxCaptureCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestSourceTab.resx">
+      <DependentUpon>TestSourceTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TxRxGainTempLUTCfg.resx">
+      <DependentUpon>TxRxGainTempLUTCfg.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Automation DLL Error Codes.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="BPMData.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="ChirpConfigData.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="ChirpPhaseShifterConfigData.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="FilterProgCoeffRAMData.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="HSDCProAutomation.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="libRF_API.a">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="ProfConfigData.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Thumbs.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_log.log">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="HSDCProAutomation.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="IsAR1243.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="IsFPGA.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="IsNvidiaOldCardMode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="libgcc_s_dw2-1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="libstdc++-6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="libwinpthread-1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Lua_CS_HSDCPro.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Qt5Core.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Qt5Gui.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Qt5Widgets.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="RadarLinkDLL.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="RF_API.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="rf_api.h">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="RF_API_debug.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Ti_stk_2c_pos_rgb_png_small.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="WinSCP.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

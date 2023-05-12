@@ -27,7 +27,6 @@ x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
-[Bb]in/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
@@ -302,8 +301,6 @@ node_modules/
 *.dsp
 
 # Visual Studio 6 technical files
-*.ncb
-*.aps
 
 # Visual Studio LightSwitch build output
 **/*.HTMLClient/GeneratedArtifacts
@@ -396,3 +393,4 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/AR1xController/bin/

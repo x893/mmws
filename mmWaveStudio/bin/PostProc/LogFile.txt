@@ -1,3 +1,3 @@
-12-May-2023 10:20:02: IsFPGA:,0,0,
-12-May-2023 10:20:02: D:\TI\mmws\mmWaveStudio\bin\RunTime,0,
-12-May-2023 10:20:04: API:select_capture_device,DCA1000,0,
+12-May-2023 10:28:29: IsFPGA:,0,0,
+12-May-2023 10:28:29: D:\TI\mmws\mmWaveStudio\bin\RunTime,0,
+12-May-2023 10:28:30: API:select_capture_device,DCA1000,0,
